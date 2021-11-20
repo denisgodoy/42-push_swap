@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/20 01:00:03 by degabrie         ###   ########.fr       */
+/*   Created: 2021/11/20 00:53:09 by degabrie          #+#    #+#             */
+/*   Updated: 2021/11/20 00:56:17 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../42-libft/libft.h"
-# include <stdio.h>
+#include	"push_swap.h"
 
-typedef struct s_ps
+int	ft_free_temp(t_ps *push_swap)
 {
-	int		*args;
-	char	**temp;
-}	t_ps;
+	int	i;
 
-int	ft_free_temp(t_ps *push_swap);
-
-#endif
+	i = -1;
+	while (push_swap->temp[++i])
+		free(push_swap->temp[i]);
+	free(push_swap->temp);
+	return (-1);
+}

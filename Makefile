@@ -10,7 +10,8 @@ INCLUDES := -I includes/
 
 HEADERS := includes/push_swap.h
 
-SRC := main.c
+SRC := main.c \
+		free.c
 
 LIB := -L ./42-libft -lft
 
