@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/20 01:13:48 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/20 19:38:22 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,7 @@ int	main(int argc, char **argv)
 	}
 	i = -1;
 	while (push_swap.args[++i])
-	{
-		if (push_swap.args[i] < 0)
-		{
-			write(2, "Error\n", 7);
-			free(push_swap.args);
-			exit(EXIT_FAILURE);
-		}
-	}
+		printf("%d\n", push_swap.args[i]);
 	free(push_swap.args);
 	exit(EXIT_SUCCESS);
 }
@@ -56,10 +49,20 @@ static int	ft_check_args(t_ps *push_swap, int argc, char **argv)
 		i = -1;
 		while (push_swap->temp[++i])
 		{
-			j = -1;
-			while (push_swap->temp[i][++j])
-				if (!ft_isdigit(push_swap->temp[i][j]))
-					return (ft_free_temp(push_swap));
+			if (ft_atoi(push_swap->temp[i]) >= 0)
+			{
+				j = -1;
+				while (push_swap->temp[i][++j])
+					if (!ft_isdigit(push_swap->temp[i][j]))
+						return (ft_free_temp(push_swap));
+			}
+			else
+			{
+				j = 0;
+				while (push_swap->temp[i][++j])
+					if (!ft_isdigit(push_swap->temp[i][j]))
+						return (ft_free_temp(push_swap));
+			}
 		}
 		return (ft_alloc_args(push_swap, i));
 	}
@@ -94,13 +97,28 @@ static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
 	k = 0;
 	while (argv[++i])
 	{
-		j = -1;
-		while (argv[i][++j])
+		if (ft_atoi(argv[i]) < 0)
 		{
-			if (!ft_isdigit(argv[i][j]))
+			j = 0;
+			while (argv[i][++j])
 			{
-				free(push_swap->args);
-				return (-1);
+				if (!ft_isdigit(argv[i][j]))
+				{
+					free(push_swap->args);
+					return (-1);
+				}
+			}
+		}
+		else
+		{
+			j = -1;
+			while (argv[i][++j])
+			{
+				if (!ft_isdigit(argv[i][j]))
+				{
+					free(push_swap->args);
+					return (-1);
+				}
 			}
 		}
 		push_swap->args[k++] = ft_atoi(argv[i]);
