@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/20 00:56:31 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/20 01:13:48 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,16 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 7);
 		exit(EXIT_FAILURE);
 	}
-	i = 0;
-	while (push_swap.args[i])
-		printf("argv %d\n", push_swap.args[i++]);
+	i = -1;
+	while (push_swap.args[++i])
+	{
+		if (push_swap.args[i] < 0)
+		{
+			write(2, "Error\n", 7);
+			free(push_swap.args);
+			exit(EXIT_FAILURE);
+		}
+	}
 	free(push_swap.args);
 	exit(EXIT_SUCCESS);
 }
