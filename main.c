@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
+/*   Updated: 2021/11/19 21:34:27 by degabrie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	ft_check_args(int argc, char **argv);
+static int	ft_check_args(int argc, char **argv);
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	i;
 
@@ -18,13 +30,13 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-int	ft_check_args(int argc, char **argv)
+static int	ft_check_args(int argc, char **argv)
 {
 	int	i;
 	int	j;
 
 	if (argc == 1)
-		return (-1);
+		exit(EXIT_FAILURE);
 	i = 0;
 	while (argv[++i])
 	{
