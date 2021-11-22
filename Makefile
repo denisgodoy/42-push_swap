@@ -11,7 +11,8 @@ INCLUDES := -I includes/
 HEADERS := includes/push_swap.h
 
 SRC := main.c \
-		free.c
+		free.c \
+		validate.c
 
 LIB := -L ./42-libft -lft
 
