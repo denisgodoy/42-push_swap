@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 22:25:03 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/23 01:11:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/23 01:34:41 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,9 @@ static int	ft_only_spaces(char *arg)
 {
 	int	i;
 
-	i = 0;
-	while (arg[i])
-	{
+	i = -1;
+	while (arg[++i])
 		if (arg[i] != ' ')
 			return (0);
-		i++;
-	}
 	return (1);
 }
