@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/22 20:24:52 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/22 21:24:04 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,14 @@ int	main(int argc, char **argv)
 	int		i;
 	t_ps	push_swap;
 
-	if (ft_check_args(&push_swap, argc, argv, -1) < 0)
+	if (ft_check_args(&push_swap, argc, argv, -1))
 	{
 		write(2, "Error\n", 7);
 		exit(EXIT_FAILURE);
 	}
-	else if (ft_is_duplicate(&push_swap) < 0)
-	{
-		free(push_swap.args);
-		write(2, "Error\n", 7);
-		exit(EXIT_FAILURE);
-	}
-	i = 0;
-	while (i < push_swap.arr_len)
-	{
+	i = -1;
+	while (++i < push_swap.arr_len)
 		printf("%d\n", push_swap.args[i]);
-		i++;
-	}
 	free(push_swap.args);
 	exit(EXIT_SUCCESS);
 }
@@ -55,14 +46,14 @@ static int	ft_check_args(t_ps *push_swap, int argc, char **argv, int i)
 		i = -1;
 		while (push_swap->temp[++i])
 		{
-			if (ft_atoi(push_swap->temp[i]) >= 0)
+			if (ft_atoi(push_swap->temp[i]) < 0)
 			{
-				if (ft_check_digits(push_swap, push_swap->temp[i], 0) < 0)
+				if (ft_check_digits(push_swap, push_swap->temp[i] + 1, 0))
 					return (ft_free_arr(push_swap->temp));
 			}
 			else
 			{
-				if (ft_check_digits(push_swap, push_swap->temp[i] + 1, 0) < 0)
+				if (ft_check_digits(push_swap, push_swap->temp[i], 0))
 					return (ft_free_arr(push_swap->temp));
 			}
 		}
@@ -74,7 +65,6 @@ static int	ft_check_args(t_ps *push_swap, int argc, char **argv, int i)
 static int	ft_alloc_args(t_ps *push_swap, int size)
 {
 	int	i;
-	int	j;
 
 	push_swap->arr_len = size;
 	push_swap->args = (int *)malloc(size * sizeof(int));
@@ -84,14 +74,13 @@ static int	ft_alloc_args(t_ps *push_swap, int size)
 		exit(EXIT_FAILURE);
 	}
 	i = -1;
-	j = 0;
 	while (push_swap->temp[++i])
 	{
-		push_swap->args[j++] = ft_atoi(push_swap->temp[i]);
+		push_swap->args[i] = ft_atoi(push_swap->temp[i]);
 		free(push_swap->temp[i]);
 	}
 	free(push_swap->temp);
-	return (0);
+	return (ft_is_duplicate(push_swap));
 }
 
 static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
@@ -109,17 +98,17 @@ static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
 	{
 		if (ft_atoi(argv[i]) < 0)
 		{
-			if (ft_check_digits(push_swap, argv[i] + 1, 1) < 0)
-				return (-1);
+			if (ft_check_digits(push_swap, argv[i] + 1, 1))
+				return (1);
 		}
 		else
 		{
-			if (ft_check_digits(push_swap, argv[i], 1) < 0)
-				return (-1);
+			if (ft_check_digits(push_swap, argv[i], 1))
+				return (1);
 		}
 		push_swap->args[j++] = ft_atoi(argv[i]);
 	}
-	return (0);
+	return (ft_is_duplicate(push_swap));
 }
 
 static int	ft_only_spaces(char *arg)
