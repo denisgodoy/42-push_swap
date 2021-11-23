@@ -39,4 +39,8 @@ fclean: clean
 
 re: fclean all
 
+commit:
+	git commit -m "update push_swap"
+	git push origin main
+
 .PHONY: all clean fclean re

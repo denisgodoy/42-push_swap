@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 22:25:03 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/22 23:32:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/22 23:51:40 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,8 @@ static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
 			if (ft_check_digits(push_swap, argv[i] + 1, 1))
 				return (1);
 		}
-		else
-		{
-			if (ft_check_digits(push_swap, argv[i], 1))
+		else if (ft_check_digits(push_swap, argv[i], 1))
 				return (1);
-		}
 		push_swap->args[j++] = ft_atoi(argv[i]);
 	}
 	return (ft_is_duplicate(push_swap));
