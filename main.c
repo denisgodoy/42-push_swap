@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/22 22:25:43 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/22 23:30:23 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	int		i;
 	t_ps	push_swap;
 
-	if (ft_check_args(&push_swap, argc, argv, -1))
+	if (ft_check_args(&push_swap, argc, argv))
 	{
 		write(2, "Error\n", 7);
 		exit(EXIT_FAILURE);

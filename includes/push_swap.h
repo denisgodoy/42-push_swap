@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/22 22:26:06 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/22 23:30:18 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_ps
 	int		arr_len;
 }	t_ps;
 
-int	ft_check_args(t_ps *push_swap, int argc, char **argv, int i);
+int	ft_check_args(t_ps *push_swap, int argc, char **argv);
 int	ft_check_digits(t_ps *push_swap, char *arg, int direct);
 int	ft_free_arr(char **args);
 int	ft_is_duplicate(t_ps *push_swap);

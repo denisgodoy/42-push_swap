@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 22:25:03 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/22 22:27:35 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/22 23:32:18 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ static int	ft_alloc_args(t_ps *push_swap, int size);
 static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv);
 static int	ft_only_spaces(char *arg);
 
-int	ft_check_args(t_ps *push_swap, int argc, char **argv, int i)
+int	ft_check_args(t_ps *push_swap, int argc, char **argv)
 {
+	int	i;
+
 	if (argc == 1 || ft_only_spaces(argv[1]))
 		exit(EXIT_FAILURE);
 	else if (ft_strchr(argv[1], ' '))
@@ -33,11 +35,8 @@ int	ft_check_args(t_ps *push_swap, int argc, char **argv, int i)
 				if (ft_check_digits(push_swap, push_swap->temp[i] + 1, 0))
 					return (ft_free_arr(push_swap->temp));
 			}
-			else
-			{
-				if (ft_check_digits(push_swap, push_swap->temp[i], 0))
-					return (ft_free_arr(push_swap->temp));
-			}
+			else if (ft_check_digits(push_swap, push_swap->temp[i], 0))
+				return (ft_free_arr(push_swap->temp));
 		}
 		return (ft_alloc_args(push_swap, i));
 	}
