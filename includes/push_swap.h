@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/22 23:30:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/23 01:04:09 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define PUSH_SWAP_H
 # include "../42-libft/libft.h"
 # include <stdio.h>
+
+enum e_digits
+{
+	str,
+	cmd
+};
 
 typedef struct s_ps
 {

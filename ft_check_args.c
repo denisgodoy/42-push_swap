@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 22:25:03 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/22 23:51:40 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/23 01:11:37 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int	ft_check_args(t_ps *push_swap, int argc, char **argv)
 		{
 			if (ft_atoi(push_swap->temp[i]) < 0)
 			{
-				if (ft_check_digits(push_swap, push_swap->temp[i] + 1, 0))
+				if (ft_check_digits(push_swap, push_swap->temp[i] + 1, str))
 					return (ft_free_arr(push_swap->temp));
 			}
-			else if (ft_check_digits(push_swap, push_swap->temp[i], 0))
+			else if (ft_check_digits(push_swap, push_swap->temp[i], str))
 				return (ft_free_arr(push_swap->temp));
 		}
 		return (ft_alloc_args(push_swap, i));
@@ -48,6 +48,11 @@ static int	ft_alloc_args(t_ps *push_swap, int size)
 	int	i;
 
 	push_swap->arr_len = size;
+	if (push_swap->arr_len == 1)
+	{
+		ft_free_arr(push_swap->temp);
+		exit(EXIT_FAILURE);
+	}
 	push_swap->args = (int *)malloc(size * sizeof(int));
 	if (!push_swap->args)
 	{
@@ -56,35 +61,35 @@ static int	ft_alloc_args(t_ps *push_swap, int size)
 	}
 	i = -1;
 	while (push_swap->temp[++i])
-	{
 		push_swap->args[i] = ft_atoi(push_swap->temp[i]);
-		free(push_swap->temp[i]);
-	}
-	free(push_swap->temp);
+	ft_free_arr(push_swap->temp);
 	return (ft_is_duplicate(push_swap));
 }
 
 static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
 {
 	int	i;
-	int	j;
 
 	push_swap->arr_len = argc - 1;
 	push_swap->args = (int *)malloc((argc - 1) * sizeof(int));
 	if (!push_swap->args)
 		exit(EXIT_FAILURE);
 	i = 0;
-	j = 0;
 	while (argv[++i])
 	{
 		if (ft_atoi(argv[i]) < 0)
 		{
-			if (ft_check_digits(push_swap, argv[i] + 1, 1))
+			if (ft_check_digits(push_swap, argv[i] + 1, cmd))
 				return (1);
 		}
-		else if (ft_check_digits(push_swap, argv[i], 1))
-				return (1);
-		push_swap->args[j++] = ft_atoi(argv[i]);
+		else if (ft_check_digits(push_swap, argv[i], cmd))
+			return (1);
+		push_swap->args[i - 1] = ft_atoi(argv[i]);
+	}
+	if (push_swap->arr_len == 1)
+	{
+		free(push_swap->args);
+		exit(EXIT_FAILURE);
 	}
 	return (ft_is_duplicate(push_swap));
 }

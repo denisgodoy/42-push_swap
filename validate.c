@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:40:49 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/22 23:28:56 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/23 01:05:36 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ int	ft_is_duplicate(t_ps *push_swap)
 	return (0);
 }
 
-int	ft_check_digits(t_ps *push_swap, char *arg, int direct)
+int	ft_check_digits(t_ps *push_swap, char *arg, int input)
 {
 	int	i;
 
 	i = -1;
-	if (direct)
+	if (input)
 	{
 		while (arg[++i])
 		{
