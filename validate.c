@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:40:49 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/23 01:05:36 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/23 17:06:15 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,14 @@ int	ft_check_digits(t_ps *push_swap, char *arg, int input)
 	int	i;
 
 	i = -1;
-	if (input)
-	{
-		while (arg[++i])
-		{
-			if (!ft_isdigit(arg[i]))
-			{
-				free(push_swap->args);
-				return (1);
-			}
-		}
-		return (0);
-	}
 	while (arg[++i])
+	{
 		if (!ft_isdigit(arg[i]))
+		{
+			if (input)
+				free(push_swap->args);
 			return (1);
+		}
+	}
 	return (0);
 }
