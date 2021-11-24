@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/23 00:34:22 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/23 20:55:08 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	if (ft_check_args(&push_swap, argc, argv))
 	{
-		write(2, "Error\n", 7);
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	i = -1;
