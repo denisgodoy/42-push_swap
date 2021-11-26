@@ -13,6 +13,7 @@ HEADERS := includes/push_swap.h
 SRC := main.c \
 		ft_check_args.c \
 		ft_free_arr.c \
+		sort.c \
 		validate.c
 
 LIB := -L ./42-libft -lft
