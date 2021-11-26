@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:01:20 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/25 23:20:30 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/25 23:49:38 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	*ft_intdup(int *arr, int len);
 
 int	ft_sort_arr(t_ps *push_swap)
 {
-	int	head;
 	int	temp;
 	int	*arr;
 	int	i;
@@ -26,22 +25,20 @@ int	ft_sort_arr(t_ps *push_swap)
 	i = -1;
 	while (++i < push_swap->arr_len)
 	{
-		head = arr[i];
 		j = i;
 		while (++j < push_swap->arr_len)
 		{
 			if (arr[i] > arr[j])
 			{
-				temp = arr[j];
-				arr[i] = temp;
-				arr[j] = head;
-				head = arr[i];
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
 			}
 		}
 	}
 	i = arr[push_swap->arr_len / 2];
 	free(arr);
-	return(i);
+	return (i);
 }
 
 static int	*ft_intdup(int *arr, int len)
