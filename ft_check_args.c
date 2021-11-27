@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 22:25:03 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/23 01:34:41 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/26 22:06:39 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ static int	ft_alloc_args(t_ps *push_swap, int size)
 {
 	int	i;
 
-	push_swap->arr_len = size;
-	if (push_swap->arr_len == 1)
+	push_swap->len = size;
+	if (push_swap->len == 1)
 	{
 		ft_free_arr(push_swap->temp);
 		exit(EXIT_FAILURE);
@@ -70,7 +70,7 @@ static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
 {
 	int	i;
 
-	push_swap->arr_len = argc - 1;
+	push_swap->len = argc - 1;
 	push_swap->args = (int *)malloc((argc - 1) * sizeof(int));
 	if (!push_swap->args)
 		exit(EXIT_FAILURE);
@@ -86,7 +86,7 @@ static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
 			return (1);
 		push_swap->args[i - 1] = ft_atoi(argv[i]);
 	}
-	if (push_swap->arr_len == 1)
+	if (push_swap->len == 1)
 	{
 		free(push_swap->args);
 		exit(EXIT_FAILURE);

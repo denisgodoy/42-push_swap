@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/25 23:17:54 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/26 22:06:50 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	median = ft_sort_arr(&push_swap);
 	printf("%d\n\n", median);
 	i = -1;
-	while (++i < push_swap.arr_len)
+	while (++i < push_swap.len)
 		printf("%d\n", push_swap.args[i]);
 	free(push_swap.args);
 	exit(EXIT_SUCCESS);
