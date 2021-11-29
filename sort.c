@@ -6,23 +6,25 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:01:20 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/26 22:15:14 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/29 17:21:32 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
 
 static int	*ft_intdup(int *arr, int len);
-static int	ft_get_median(int *arr, t_ps *push_swap);
+static int	ft_get_median(int flag, int *arr, t_ps *push_swap);
 
 int	ft_sort_arr(t_ps *push_swap)
 {
 	int	temp;
 	int	*arr;
+	int	flag;
 	int	i;
 	int	j;
 
 	arr = ft_intdup(push_swap->args, push_swap->len);
+	flag = 0;
 	i = -1;
 	while (++i < push_swap->len)
 	{
@@ -31,13 +33,14 @@ int	ft_sort_arr(t_ps *push_swap)
 		{
 			if (arr[i] > arr[j])
 			{
+				flag = 1;
 				temp = arr[i];
 				arr[i] = arr[j];
 				arr[j] = temp;
 			}
 		}
 	}
-	return (ft_get_median(arr, push_swap));
+	return (ft_get_median(flag, arr, push_swap));
 }
 
 static int	*ft_intdup(int *arr, int len)
@@ -52,7 +55,7 @@ static int	*ft_intdup(int *arr, int len)
 	return (new_arr);
 }
 
-static int	ft_get_median(int *arr, t_ps *push_swap)
+static int	ft_get_median(int flag, int *arr, t_ps *push_swap)
 {
 	int	median;
 
@@ -61,5 +64,10 @@ static int	ft_get_median(int *arr, t_ps *push_swap)
 	else
 		median = (arr[push_swap->len / 2] + arr[push_swap->len / 2 - 1]) / 2;
 	free(arr);
+	if (!flag)
+	{
+		free(push_swap->args);
+		exit(EXIT_FAILURE);
+	}
 	return (median);
 }
