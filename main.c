@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/26 22:06:50 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:05:44 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(int argc, char **argv)
 {
-	int		i;
 	t_ps	push_swap;
 	int		median;
+	int		i;
 
 	if (ft_check_args(&push_swap, argc, argv))
 	{

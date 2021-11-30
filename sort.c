@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:01:20 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/29 17:21:32 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/11/29 20:10:07 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ static int	ft_get_median(int flag, int *arr, t_ps *push_swap)
 {
 	int	median;
 
-	if (push_swap->len % 2 != 0)
-		median = arr[push_swap->len / 2];
-	else
-		median = (arr[push_swap->len / 2] + arr[push_swap->len / 2 - 1]) / 2;
-	free(arr);
 	if (!flag)
 	{
 		free(push_swap->args);
 		exit(EXIT_FAILURE);
 	}
+	else if (push_swap->len % 2 != 0)
+		median = arr[push_swap->len / 2];
+	else
+		median = (arr[push_swap->len / 2] + arr[push_swap->len / 2 - 1]) / 2;
+	free(arr);
 	return (median);
 }
