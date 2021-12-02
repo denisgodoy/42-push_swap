@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 22:25:03 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/26 22:06:39 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/02 00:05:36 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_check_args(t_ps *push_swap, int argc, char **argv)
 
 	if (argc == 1 || ft_only_spaces(argv[1]))
 		exit(EXIT_FAILURE);
-	else if (ft_strchr(argv[1], ' '))
+	else if (ft_strchr(argv[1], ' ') && argc == 2)
 	{
 		push_swap->temp = ft_split(argv[1], ' ');
 		if (!push_swap->temp)
