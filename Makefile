@@ -11,6 +11,7 @@ INCLUDES := -I includes/
 HEADERS := includes/push_swap.h
 
 SRC := main.c \
+		algo.c \
 		ft_check_args.c \
 		ft_free_arr.c \
 		ft_is_sorted.c \

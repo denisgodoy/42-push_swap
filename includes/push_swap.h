@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/07 21:09:45 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/08 19:00:45 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define PUSH_SWAP_H
 # include "../42-libft/libft.h"
 # include <stdio.h>
+
+# define STDIN	1
+# define STDERR	2
 
 enum e_digits
 {
@@ -36,6 +39,7 @@ typedef struct s_ps
 	t_sort	sort;
 }	t_ps;
 
+int	ft_algorithm(t_ps *push_swap);
 int	ft_check_args(t_ps *push_swap, int argc, char **argv);
 int	ft_check_digits(t_ps *push_swap, char *arg, int direct);
 int	ft_free_arr(char **args);

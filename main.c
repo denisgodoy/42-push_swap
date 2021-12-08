@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/07 21:14:24 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/08 18:49:35 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,13 @@
 int	main(int argc, char **argv)
 {
 	t_ps	push_swap;
-	int		i;
 
 	if (ft_check_args(&push_swap, argc, argv))
 	{
-		write(2, "Error\n", 6);
-		exit(EXIT_FAILURE);
+		ft_putendl_fd("Error", STDERR);
+		return (-1);
 	}
-	else if (ft_is_sorted(&push_swap))
-	{
-		free(push_swap.args);
-		exit(EXIT_SUCCESS);
-	}
-	i = -1;
-	while (++i < push_swap.len)
-		printf("%d\n", push_swap.args[i]);
-	free(push_swap.args);
+	else if (!ft_algorithm(&push_swap))
+		return (-1);
 	exit(EXIT_SUCCESS);
 }
