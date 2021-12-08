@@ -28,8 +28,7 @@ $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJ) $(HEADERS)
-	$(MAKE) -C ./42-libft
-	$(MAKE) -C ./42-libft bonus
+	$(MAKE) -C ./42-libft all bonus
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIB) -o $(NAME)
 
 clean:
