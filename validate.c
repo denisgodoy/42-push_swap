@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:40:49 by degabrie          #+#    #+#             */
-/*   Updated: 2021/11/26 22:07:03 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/07 21:15:21 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_is_duplicate(t_ps *push_swap)
 			if (push_swap->args[i] == push_swap->args[j])
 			{
 				free(push_swap->args);
-				return (-1);
+				return (1);
 			}
 		}
 	}

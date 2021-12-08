@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/07 21:14:24 by degabrie         ###   ########.fr       */
+/*   Created: 2021/11/25 00:01:20 by degabrie          #+#    #+#             */
+/*   Updated: 2021/12/07 21:11:15 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_is_sorted(t_ps *push_swap)
 {
-	t_ps	push_swap;
-	int		i;
+	int	i;
+	int	j;
 
-	if (ft_check_args(&push_swap, argc, argv))
-	{
-		write(2, "Error\n", 6);
-		exit(EXIT_FAILURE);
-	}
-	else if (ft_is_sorted(&push_swap))
-	{
-		free(push_swap.args);
-		exit(EXIT_SUCCESS);
-	}
 	i = -1;
-	while (++i < push_swap.len)
-		printf("%d\n", push_swap.args[i]);
-	free(push_swap.args);
-	exit(EXIT_SUCCESS);
+	while (++i < push_swap->len)
+	{
+		j = i;
+		while (++j < push_swap->len)
+			if (push_swap->args[i] > push_swap->args[j])
+				return (0);
+	}
+	return (1);
 }

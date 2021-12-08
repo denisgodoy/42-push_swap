@@ -13,7 +13,7 @@ HEADERS := includes/push_swap.h
 SRC := main.c \
 		ft_check_args.c \
 		ft_free_arr.c \
-		sort.c \
+		ft_is_sorted.c \
 		validate.c
 
 LIB := -L ./42-libft -lft
@@ -28,6 +28,7 @@ $(OBJ_DIR)/%.o: %.c
 
 $(NAME): $(OBJ) $(HEADERS)
 	$(MAKE) -C ./42-libft
+	$(MAKE) -C ./42-libft bonus
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIB) -o $(NAME)
 
 clean:
