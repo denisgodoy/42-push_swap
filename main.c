@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/08 18:49:35 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/08 19:44:17 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	main(int argc, char **argv)
 	}
 	else if (!ft_algorithm(&push_swap))
 		return (-1);
+	free(push_swap.args);
 	exit(EXIT_SUCCESS);
 }
