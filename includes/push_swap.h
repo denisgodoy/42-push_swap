@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/09 19:53:32 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/09 22:44:18 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ enum e_digits
 
 typedef struct s_sort
 {
-	struct s_sort	*prev;
 	int				num;
 	struct s_sort	*next;
 }	t_sort;
