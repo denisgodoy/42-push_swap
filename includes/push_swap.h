@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/08 22:51:55 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/09 19:53:32 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ enum e_digits
 
 typedef struct s_sort
 {
-	int	prev;
-	int	num;
-	int	next;
+	struct s_sort	*prev;
+	int				num;
+	struct s_sort	*next;
 }	t_sort;
 
 typedef struct s_ps
@@ -36,7 +36,8 @@ typedef struct s_ps
 	int		*args;
 	char	**temp;
 	int		len;
-	t_sort	sort;
+	t_sort	*stack_a;
+	t_sort	*stack_b;
 }	t_ps;
 
 int	ft_algorithm(t_ps *push_swap);

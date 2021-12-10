@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:01:20 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/08 22:54:55 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/08 23:18:42 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	*ft_intdup(int *arr, int len)
 
 static int	ft_get_midpoint(int flag, int *arr, t_ps *push_swap)
 {
-	int	median;
+	int	midpoint;
 
 	if (!flag)
 	{
@@ -66,9 +66,9 @@ static int	ft_get_midpoint(int flag, int *arr, t_ps *push_swap)
 		exit(EXIT_FAILURE);
 	}
 	else if (push_swap->len % 2 != 0)
-		median = arr[push_swap->len / 2];
+		midpoint = arr[push_swap->len / 2];
 	else
-		median = (arr[push_swap->len / 2] + arr[push_swap->len / 2 - 1]) / 2;
+		midpoint = (arr[push_swap->len / 2] + arr[push_swap->len / 2 - 1]) / 2;
 	free(arr);
-	return (median);
+	return (midpoint);
 }
