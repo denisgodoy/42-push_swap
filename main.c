@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 16:20:39 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 16:37:46 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_print_stack(t_sort **stack)
 	while (*stack != NULL)
 	{
 		ft_putendl_fd("", STDIN_FILENO);
-		printf("stack a %p\n", *stack);
+		printf("stack %p\n", *stack);
 		printf("next %p\n", (*stack)->next);
 		printf("num %d\n", (*stack)->num);
 		*stack = (*stack)->next;
@@ -47,9 +47,9 @@ int	main(int argc, char **argv)
 	ft_push_b(&push_swap);
 	ft_push_b(&push_swap);
 	ft_push_a(&push_swap);
-	printf("\nlist size %d\n", ft_llsize(push_swap.stack_b));
+	printf("\nstack b size %d\n", ft_llsize(push_swap.stack_b));
 	ft_print_stack(&push_swap.stack_b);
-	printf("\nlist size %d\n", ft_llsize(push_swap.stack_a));
+	printf("\nstack a size %d\n", ft_llsize(push_swap.stack_a));
 	ft_print_stack(&push_swap.stack_a);
 	free(push_swap.args);
 	exit(EXIT_SUCCESS);

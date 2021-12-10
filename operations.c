@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:56:48 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 16:07:31 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 16:34:22 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ void	ft_push_a(t_ps *push_swap)
 
 	if (!ft_llsize(push_swap->stack_b))
 		return ;
-	else if (!ft_llsize(push_swap->stack_a))
+	ft_putendl_fd("pa", STDIN_FILENO);
+	if (!ft_llsize(push_swap->stack_a))
 	{
 		head = push_swap->stack_b->next;
 		push_swap->stack_a = push_swap->stack_b;
 		push_swap->stack_a->next = NULL;
 		push_swap->stack_b = head;
-		ft_putendl_fd("pa", STDIN_FILENO);
 		return ;
 	}
 	head = push_swap->stack_b->next;
@@ -82,7 +82,6 @@ void	ft_push_a(t_ps *push_swap)
 	push_swap->stack_a = push_swap->stack_b;
 	push_swap->stack_a->next = temp;
 	push_swap->stack_b = head;
-	ft_putendl_fd("pa", STDIN_FILENO);
 }
 
 void	ft_push_b(t_ps *push_swap)
@@ -92,13 +91,13 @@ void	ft_push_b(t_ps *push_swap)
 
 	if (!ft_llsize(push_swap->stack_a))
 		return ;
-	else if (!ft_llsize(push_swap->stack_b))
+	ft_putendl_fd("pb", STDIN_FILENO);
+	if (!ft_llsize(push_swap->stack_b))
 	{
 		head = push_swap->stack_a->next;
 		push_swap->stack_b = push_swap->stack_a;
 		push_swap->stack_b->next = NULL;
 		push_swap->stack_a = head;
-		ft_putendl_fd("pb", STDIN_FILENO);
 		return ;
 	}
 	head = push_swap->stack_a->next;
@@ -106,5 +105,4 @@ void	ft_push_b(t_ps *push_swap)
 	push_swap->stack_b = push_swap->stack_a;
 	push_swap->stack_b->next = temp;
 	push_swap->stack_a = head;
-	ft_putendl_fd("pb", STDIN_FILENO);
 }

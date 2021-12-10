@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 11:19:42 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 16:35:17 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	ft_algorithm(t_ps *push_swap)
 
 static int	ft_operation(char *operation)
 {
-	ft_putendl_fd(operation, STDIN);
+	ft_putendl_fd(operation, STDIN_FILENO);
 	return (1);
 }
