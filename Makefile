@@ -11,14 +11,21 @@ INCLUDES := -I includes/
 HEADERS := includes/push_swap.h
 
 SRC := main.c \
+		$(addprefix utils/, \
 		algo.c \
 		ft_check_args.c \
 		ft_free_arr.c \
 		ft_is_sorted.c \
-		linked_list.c \
 		operations.c \
-		operations_both.c \
-		validate.c
+		both_operations.c \
+		validate.c) \
+		$(addprefix utils/linked_list/, \
+		ft_lladd_back.c \
+		ft_lladd_front.c \
+		ft_llclear.c \
+		ft_lllast.c \
+		ft_llnew.c \
+		ft_llsize.c)
 
 LIB := -L ./42-libft -lft
 
@@ -27,11 +34,11 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 all: $(NAME)
 
 $(OBJ_DIR)/%.o: %.c
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)/utils/linked_list
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJ) $(HEADERS)
-	$(MAKE) -C ./42-libft all bonus
+	$(MAKE) -C ./42-libft all
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIB) -o $(NAME)
 
 clean:
