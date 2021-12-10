@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 11:19:15 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 16:07:14 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define PUSH_SWAP_H
 # include "../42-libft/libft.h"
 # include <stdio.h>
-
-# define STDIN	1
-# define STDERR	2
 
 enum e_digits
 {
@@ -49,13 +46,16 @@ int		ft_is_sorted(t_ps *push_swap);
 void	ft_swap_a(t_ps *push_swap);
 void	ft_rotate_a(t_ps *push_swap);
 void	ft_reverse_rotate_a(t_ps *push_swap);
-void	ft_swap_b(t_ps *push_swap);
-void	ft_rotate_b(t_ps *push_swap);
-void	ft_reverse_rotate_b(t_ps *push_swap);
+void	ft_swap(t_sort **stack, char *op);
+void	ft_rotate(t_sort **stack, char *op);
+void	ft_reverse_rotate(t_sort **stack, char *op);
+void	ft_push_a(t_ps *push_swap);
+void	ft_push_b(t_ps *push_swap);
 
 t_sort	*ft_llnew(int content);
 t_sort	*ft_lllast(t_sort *lst);
 void	ft_lladd_back(t_sort **lst, t_sort *new);
 void	ft_lladd_front(t_sort **lst, t_sort *new);
+int		ft_llsize(t_sort *lst);
 
 #endif

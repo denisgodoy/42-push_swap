@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:56:48 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 10:57:17 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 15:03:57 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_swap_a(t_ps *push_swap)
 	push_swap->stack_a = push_swap->stack_a->next;
 	push_swap->stack_a->next = head;
 	head->next = third;
-	ft_putendl_fd("sa", STDIN);
+	ft_putendl_fd("sa", STDIN_FILENO);
 }
 
 void	ft_rotate_a(t_ps *push_swap)
@@ -37,7 +37,7 @@ void	ft_rotate_a(t_ps *push_swap)
 	push_swap->stack_a->next = NULL;
 	last->next = head;
 	push_swap->stack_a = temp;
-	ft_putendl_fd("ra", STDIN);
+	ft_putendl_fd("ra", STDIN_FILENO);
 }
 
 void	ft_reverse_rotate_a(t_ps *push_swap)
@@ -58,5 +58,5 @@ void	ft_reverse_rotate_a(t_ps *push_swap)
 	ntl->next = NULL;
 	ft_lladd_front(&push_swap->stack_a, ft_llnew(last->num));
 	free(last);
-	ft_putendl_fd("rra", STDIN);
+	ft_putendl_fd("rra", STDIN_FILENO);
 }

@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 11:00:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 11:01:08 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 11:45:48 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,17 @@ void	ft_lladd_front(t_sort **lst, t_sort *new)
 {
 	new->next = *lst;
 	*lst = new;
+}
+
+int	ft_llsize(t_sort *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != 0)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

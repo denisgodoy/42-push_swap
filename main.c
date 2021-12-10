@@ -6,11 +6,23 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 11:20:05 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 16:20:39 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
+
+static void	ft_print_stack(t_sort **stack)
+{
+	while (*stack != NULL)
+	{
+		ft_putendl_fd("", STDIN_FILENO);
+		printf("stack a %p\n", *stack);
+		printf("next %p\n", (*stack)->next);
+		printf("num %d\n", (*stack)->num);
+		*stack = (*stack)->next;
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -19,26 +31,26 @@ int	main(int argc, char **argv)
 
 	if (ft_check_args(&push_swap, argc, argv))
 	{
-		ft_putendl_fd("Error", STDERR);
+		ft_putendl_fd("Error", STDERR_FILENO);
 		return (-1);
 	}
 	else if (!ft_algorithm(&push_swap))
 		return (-1);
 	push_swap.stack_a = ft_llnew(push_swap.args[0]);
+	push_swap.stack_b = NULL;
 	i = 0;
 	while (++i < push_swap.len)
 		ft_lladd_back(&push_swap.stack_a, ft_llnew(push_swap.args[i]));
-	ft_swap_a(&push_swap);
-	ft_rotate_a(&push_swap);
-	ft_reverse_rotate_a(&push_swap);
-	while (push_swap.stack_a != NULL)
-	{
-		ft_putendl_fd("", STDIN);
-		printf("stack %p\n", push_swap.stack_a);
-		printf("next %p\n", push_swap.stack_a->next);
-		printf("num %d\n", push_swap.stack_a->num);
-		push_swap.stack_a = push_swap.stack_a->next;
-	}
+	ft_swap(&push_swap.stack_a, "sa");
+	ft_rotate(&push_swap.stack_a, "ra");
+	ft_reverse_rotate(&push_swap.stack_a, "rra");
+	ft_push_b(&push_swap);
+	ft_push_b(&push_swap);
+	ft_push_a(&push_swap);
+	printf("\nlist size %d\n", ft_llsize(push_swap.stack_b));
+	ft_print_stack(&push_swap.stack_b);
+	printf("\nlist size %d\n", ft_llsize(push_swap.stack_a));
+	ft_print_stack(&push_swap.stack_a);
 	free(push_swap.args);
 	exit(EXIT_SUCCESS);
 }
