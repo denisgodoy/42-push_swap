@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 11:00:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 11:45:48 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:22:06 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_sort	*ft_llnew(int content)
 	if (!new)
 		return (0);
 	new->num = content;
-	new->next = 0;
+	new->next = NULL;
 	return (new);
 }
 
@@ -28,7 +28,7 @@ t_sort	*ft_lllast(t_sort *lst)
 {
 	if (!lst)
 		return (0);
-	while (lst->next != 0)
+	while (lst->next != NULL)
 		lst = lst->next;
 	return (lst);
 }
@@ -57,10 +57,25 @@ int	ft_llsize(t_sort *lst)
 	int	i;
 
 	i = 0;
-	while (lst != 0)
+	while (lst != NULL)
 	{
 		i++;
 		lst = lst->next;
 	}
 	return (i);
+}
+
+void	ft_llclear(t_sort **lst, void (*del)(void *))
+{
+	t_sort	*node;
+	t_sort	*nxt;
+
+	while (*lst != NULL)
+	{
+		nxt = *lst;
+		node = nxt->next;
+		del((*lst));
+		*lst = node;
+	}
+	*lst = NULL;
 }
