@@ -17,7 +17,7 @@ SRC := main.c \
 		ft_is_sorted.c \
 		linked_list.c \
 		operations.c \
-		operations_a.c \
+		operations_both.c \
 		validate.c
 
 LIB := -L ./42-libft -lft

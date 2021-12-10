@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 16:07:14 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:49:36 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ int		ft_free_arr(char **args);
 int		ft_is_duplicate(t_ps *push_swap);
 int		ft_is_sorted(t_ps *push_swap);
 
-void	ft_swap_a(t_ps *push_swap);
-void	ft_rotate_a(t_ps *push_swap);
-void	ft_reverse_rotate_a(t_ps *push_swap);
 void	ft_swap(t_sort **stack, char *op);
 void	ft_rotate(t_sort **stack, char *op);
 void	ft_reverse_rotate(t_sort **stack, char *op);
 void	ft_push_a(t_ps *push_swap);
 void	ft_push_b(t_ps *push_swap);
+void	ft_swap_both(t_ps *push_swap);
+void	ft_rotate_both(t_ps *push_swap);
+void	ft_reverse_rotate_both(t_ps *push_swap);
 
 t_sort	*ft_llnew(int content);
 t_sort	*ft_lllast(t_sort *lst);
