@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/09 22:44:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 11:19:15 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,23 @@ typedef struct s_ps
 	t_sort	*stack_b;
 }	t_ps;
 
-int	ft_algorithm(t_ps *push_swap);
-int	ft_check_args(t_ps *push_swap, int argc, char **argv);
-int	ft_check_digits(t_ps *push_swap, char *arg, int direct);
-int	ft_free_arr(char **args);
-int	ft_is_duplicate(t_ps *push_swap);
-int	ft_is_sorted(t_ps *push_swap);
+int		ft_algorithm(t_ps *push_swap);
+int		ft_check_args(t_ps *push_swap, int argc, char **argv);
+int		ft_check_digits(t_ps *push_swap, char *arg, int direct);
+int		ft_free_arr(char **args);
+int		ft_is_duplicate(t_ps *push_swap);
+int		ft_is_sorted(t_ps *push_swap);
+
+void	ft_swap_a(t_ps *push_swap);
+void	ft_rotate_a(t_ps *push_swap);
+void	ft_reverse_rotate_a(t_ps *push_swap);
+void	ft_swap_b(t_ps *push_swap);
+void	ft_rotate_b(t_ps *push_swap);
+void	ft_reverse_rotate_b(t_ps *push_swap);
+
+t_sort	*ft_llnew(int content);
+t_sort	*ft_lllast(t_sort *lst);
+void	ft_lladd_back(t_sort **lst, t_sort *new);
+void	ft_lladd_front(t_sort **lst, t_sort *new);
 
 #endif

@@ -6,14 +6,13 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 00:02:50 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 11:19:42 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
 
 static int	ft_operation(char *operation);
-
 
 int	ft_small_algo(t_ps *push_swap, int *args)
 {
@@ -50,8 +49,6 @@ int	ft_algorithm(t_ps *push_swap)
 	int	midpoint;
 
 	midpoint = ft_is_sorted(push_swap);
-	//if (push_swap->len <= 3)
-	//	return (ft_small_algo(push_swap, push_swap->args));
 	return (1);
 }
 
