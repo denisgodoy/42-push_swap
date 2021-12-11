@@ -2,7 +2,7 @@ NAME := push_swap
 
 CC := gcc
 
-CFLAGS := -Wall -Wextra -Werror -fsanitize=address
+CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address
 
 OBJ_DIR := obj
 
@@ -16,8 +16,8 @@ SRC := main.c \
 		ft_free_arr.c \
 		ft_init_stacks.c \
 		ft_is_sorted.c \
+		operations_2stack.c \
 		operations.c \
-		operations2.c \
 		parser.c \
 		validate.c) \
 		$(addprefix utils/linked_list/, \
