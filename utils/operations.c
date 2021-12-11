@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:56:48 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/11 13:02:32 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/11 18:55:39 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_swap(t_sort **stack, char *op)
 	*stack = (*stack)->next;
 	(*stack)->next = head;
 	head->next = third;
-	ft_putendl_fd(op, STDIN_FILENO);
+	ft_putendl_fd(op, STDOUT_FILENO);
 }
 
 void	ft_rotate(t_sort **stack, char *op)
@@ -37,7 +37,7 @@ void	ft_rotate(t_sort **stack, char *op)
 	*stack = (*stack)->next;
 	last->next = NULL;
 	ft_lladd_back(stack, last);
-	ft_putendl_fd(op, STDIN_FILENO);
+	ft_putendl_fd(op, STDOUT_FILENO);
 }
 
 void	ft_reverse_rotate(t_sort **stack, char *op)
@@ -59,7 +59,7 @@ void	ft_reverse_rotate(t_sort **stack, char *op)
 	}
 	ntl->next = NULL;
 	ft_lladd_front(stack, last);
-	ft_putendl_fd(op, STDIN_FILENO);
+	ft_putendl_fd(op, STDOUT_FILENO);
 }
 
 void	ft_push(t_sort **src, t_sort **dst, char *op)
@@ -69,7 +69,7 @@ void	ft_push(t_sort **src, t_sort **dst, char *op)
 
 	if (!*src)
 		return ;
-	ft_putendl_fd(op, STDIN_FILENO);
+	ft_putendl_fd(op, STDOUT_FILENO);
 	head = (*src)->next;
 	temp = *dst;
 	*dst = *src;

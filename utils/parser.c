@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 22:25:03 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 21:08:16 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/11 18:45:16 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static int	ft_alloc_args(t_ps *push_swap, int size)
 {
 	int	i;
 
+	push_swap->max = 0;
 	push_swap->len = size;
 	if (push_swap->len == 1)
 	{
@@ -61,7 +62,11 @@ static int	ft_alloc_args(t_ps *push_swap, int size)
 	}
 	i = -1;
 	while (push_swap->temp[++i])
+	{
 		push_swap->args[i] = ft_atoi(push_swap->temp[i]);
+		if (push_swap->args[i] > push_swap->max)
+			push_swap->max = push_swap->args[i];
+	}
 	ft_free_arr(push_swap->temp);
 	return (ft_is_duplicate(push_swap));
 }
@@ -70,6 +75,7 @@ static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
 {
 	int	i;
 
+	push_swap->max = 0;
 	push_swap->len = argc - 1;
 	push_swap->args = (int *)malloc((argc - 1) * sizeof(int));
 	if (!push_swap->args)
@@ -85,6 +91,8 @@ static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
 		else if (ft_check_digits(push_swap, argv[i], cmd))
 			return (1);
 		push_swap->args[i - 1] = ft_atoi(argv[i]);
+		if (push_swap->args[i - 1] > push_swap->max)
+			push_swap->max = push_swap->args[i - 1];
 	}
 	if (push_swap->len == 1)
 	{

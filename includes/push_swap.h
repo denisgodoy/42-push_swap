@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/11 13:05:22 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/11 19:03:42 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_ps
 	int		*args;
 	char	**temp;
 	int		len;
+	int		min;
+	int		max;
 	t_sort	*stack_a;
 	t_sort	*stack_b;
 }	t_ps;
