@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/11 17:28:42 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/11 20:21:35 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ int	main(int argc, char **argv)
 		ft_putendl_fd("Error", STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
+	printf("min %d\n", push_swap.min);
+	printf("max %d\n", push_swap.max);
 	ft_init_stacks(&push_swap);
 	ft_algorithm(&push_swap);
 	printf("\nstack b size %d\n", ft_llsize(push_swap.stack_b));
 	ft_print_stack(&push_swap.stack_b);
 	printf("\nstack a size %d\n", ft_llsize(push_swap.stack_a));
 	ft_print_stack(&push_swap.stack_a);
-	ft_llclear(&push_swap.stack_a, &free);
-	exit(EXIT_SUCCESS);
+	return (0);
 }
 
 static void	ft_print_stack(t_sort **stack)
