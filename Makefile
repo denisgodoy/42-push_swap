@@ -12,13 +12,13 @@ HEADERS := includes/push_swap.h
 
 SRC := main.c \
 		$(addprefix utils/, \
-		algo.c \
-		ft_check_args.c \
+		ft_algorithm.c \
 		ft_free_arr.c \
 		ft_init_stacks.c \
 		ft_is_sorted.c \
 		operations.c \
-		both_operations.c \
+		operations2.c \
+		parser.c \
 		validate.c) \
 		$(addprefix utils/linked_list/, \
 		ft_lladd_back.c \
