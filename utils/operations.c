@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:56:48 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 22:20:24 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/11 13:02:32 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_swap(t_sort **stack, char *op)
 	t_sort	*head;
 	t_sort	*third;
 
+	if (!*stack)
+		return ;
 	head = *stack;
 	third = (*stack)->next->next;
 	*stack = (*stack)->next;
@@ -29,6 +31,8 @@ void	ft_rotate(t_sort **stack, char *op)
 {
 	t_sort	*last;
 
+	if (!*stack)
+		return ;
 	last = *stack;
 	*stack = (*stack)->next;
 	last->next = NULL;
@@ -43,6 +47,8 @@ void	ft_reverse_rotate(t_sort **stack, char *op)
 	t_sort	*ntl;
 	t_sort	*temp;
 
+	if (!*stack)
+		return ;
 	last = ft_lllast(*stack);
 	temp = *stack;
 	i = 0;
@@ -56,38 +62,20 @@ void	ft_reverse_rotate(t_sort **stack, char *op)
 	ft_putendl_fd(op, STDIN_FILENO);
 }
 
-void	ft_push_a(t_ps *push_swap)
+void	ft_push(t_sort **src, t_sort **dst, char *op)
 {
 	t_sort	*head;
 	t_sort	*temp;
 
-	if (!ft_llsize(push_swap->stack_b))
+	if (!*src)
 		return ;
-	ft_putendl_fd("pa", STDIN_FILENO);
-	head = push_swap->stack_b->next;
-	temp = push_swap->stack_a;
-	push_swap->stack_a = push_swap->stack_b;
-	if (!ft_llsize(push_swap->stack_a))
-		push_swap->stack_a->next = NULL;
+	ft_putendl_fd(op, STDIN_FILENO);
+	head = (*src)->next;
+	temp = *dst;
+	*dst = *src;
+	if (!ft_llsize(*dst))
+		(*src)->next = NULL;
 	else
-		push_swap->stack_a->next = temp;
-	push_swap->stack_b = head;
-}
-
-void	ft_push_b(t_ps *push_swap)
-{
-	t_sort	*head;
-	t_sort	*temp;
-
-	if (!ft_llsize(push_swap->stack_a))
-		return ;
-	ft_putendl_fd("pb", STDIN_FILENO);
-	head = push_swap->stack_a->next;
-	temp = push_swap->stack_b;
-	push_swap->stack_b = push_swap->stack_a;
-	if (!ft_llsize(push_swap->stack_b))
-		push_swap->stack_b->next = NULL;
-	else
-		push_swap->stack_b->next = temp;
-	push_swap->stack_a = head;
+		(*src)->next = temp;
+	*src = head;
 }

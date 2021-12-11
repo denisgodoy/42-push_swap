@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 20:58:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/11 13:05:22 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,13 @@ void	ft_init_stacks(t_ps *push_swap);
 int		ft_is_duplicate(t_ps *push_swap);
 int		ft_is_sorted(t_ps *push_swap);
 
-void	ft_push_a(t_ps *push_swap);
-void	ft_push_b(t_ps *push_swap);
+void	ft_push(t_sort **src, t_sort **dst, char *op);
 void	ft_reverse_rotate(t_sort **stack, char *op);
 void	ft_rotate(t_sort **stack, char *op);
 void	ft_swap(t_sort **stack, char *op);
-void	ft_swap_both(t_ps *push_swap);
-void	ft_rotate_both(t_ps *push_swap);
 void	ft_reverse_rotate_both(t_ps *push_swap);
+void	ft_rotate_both(t_ps *push_swap);
+void	ft_swap_both(t_ps *push_swap);
 
 void	ft_lladd_back(t_sort **lst, t_sort *new);
 void	ft_lladd_front(t_sort **lst, t_sort *new);

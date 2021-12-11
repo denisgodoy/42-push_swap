@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 11:00:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 20:55:59 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/11 13:47:05 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_llclear(t_sort **lst, void (*del)(void *))
 	{
 		nxt = *lst;
 		node = nxt->next;
-		del((*lst));
+		del(*lst);
 		*lst = node;
 	}
 	*lst = NULL;
