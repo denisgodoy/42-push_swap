@@ -15,6 +15,7 @@ SRC := main.c \
 		algo.c \
 		ft_check_args.c \
 		ft_free_arr.c \
+		ft_init_stacks.c \
 		ft_is_sorted.c \
 		operations.c \
 		both_operations.c \
