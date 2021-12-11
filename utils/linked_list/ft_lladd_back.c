@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:41:38 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/10 20:41:50 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/10 22:25:02 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lladd_back(t_sort **lst, t_sort *new)
 {
 	t_sort	*node;
 
-	if (*lst != 0)
+	if (*lst != NULL)
 	{
 		node = ft_lllast(*lst);
 		node->next = new;
