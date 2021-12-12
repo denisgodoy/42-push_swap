@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/11 20:11:36 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/12 10:39:16 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,19 @@ typedef struct s_ps
 	int		len;
 	int		min;
 	int		max;
+	int		mid;
 	t_sort	*stack_a;
 	t_sort	*stack_b;
 }	t_ps;
 
-int		ft_algorithm(t_ps *push_swap);
+void	ft_algorithm(t_ps *push_swap);
 int		ft_check_args(t_ps *push_swap, int argc, char **argv);
 int		ft_check_digits(t_ps *push_swap, char *arg, int direct);
 int		ft_free_arr(char **args);
 void	ft_init_stacks(t_ps *push_swap);
 int		ft_is_duplicate(t_ps *push_swap);
 int		ft_is_sorted(t_ps *push_swap);
+void	ft_sort_arr(t_ps *push_swap);
 
 void	ft_push(t_sort **src, t_sort **dst, char *op);
 void	ft_reverse_rotate(t_sort **stack, char *op);

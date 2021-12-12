@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:40:49 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/11 21:03:38 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/12 10:28:44 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	ft_is_duplicate(t_ps *push_swap)
 			}
 		}
 	}
+	ft_sort_arr(push_swap);
 	return (0);
 }
 

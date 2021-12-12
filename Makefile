@@ -16,6 +16,7 @@ SRC := main.c \
 		ft_free_arr.c \
 		ft_init_stacks.c \
 		ft_is_sorted.c \
+		ft_sort_arr.c \
 		operations_2stack.c \
 		operations.c \
 		parser.c \

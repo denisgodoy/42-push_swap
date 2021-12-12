@@ -6,13 +6,21 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/11 21:14:39 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/12 10:46:10 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
 
-void	ft_small_sort(t_ps *push_swap)
+static void	ft_small_sort(t_ps *push_swap);
+
+void	ft_algorithm(t_ps *push_swap)
+{
+	if (push_swap->len <= 3)
+		ft_small_sort(push_swap);
+}
+
+static void	ft_small_sort(t_ps *push_swap)
 {
 	if (ft_llsize(push_swap->stack_a) < 3 && \
 		push_swap->stack_a->num > push_swap->stack_a->next->num)
@@ -46,16 +54,4 @@ void	ft_small_sort(t_ps *push_swap)
 		exit(EXIT_SUCCESS);
 	}
 	ft_small_sort(push_swap);
-}
-
-int	ft_algorithm(t_ps *push_swap)
-{
-	if (ft_is_sorted(push_swap) && push_swap->stack_b == NULL)
-	{
-		ft_llclear(&push_swap->stack_a, free);
-		exit(EXIT_SUCCESS);
-	}
-	if (push_swap->len <= 3)
-		ft_small_sort(push_swap);
-	return (1);
 }

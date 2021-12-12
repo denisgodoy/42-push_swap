@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/11 21:10:06 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/12 10:43:06 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	ft_init_stacks(&push_swap);
+	// printf("min %d\n", push_swap.min);
+	// printf("max %d\n", push_swap.max);
+	// printf("mid %d\n", push_swap.mid);
 	ft_algorithm(&push_swap);
 	printf("\nstack b size %d\n", ft_llsize(push_swap.stack_b));
 	ft_print_stack(&push_swap.stack_b);
