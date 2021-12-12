@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:21:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/12 10:44:14 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/12 11:03:38 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ static void	ft_get_median(int flag, int *arr, t_ps *push_swap)
 	if (!flag)
 	{
 		free(push_swap->args);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 }

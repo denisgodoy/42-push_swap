@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 22:25:03 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/11 20:29:00 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/12 11:06:24 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_check_args(t_ps *push_swap, int argc, char **argv)
 	int	i;
 
 	if (argc == 1 || ft_only_spaces(argv[1]))
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	else if (ft_strchr(argv[1], ' ') && argc == 2)
 	{
 		push_swap->temp = ft_split(argv[1], ' ');
@@ -51,7 +51,7 @@ static int	ft_alloc_args(t_ps *push_swap, int size)
 	if (push_swap->len == 1)
 	{
 		ft_free_arr(push_swap->temp);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	push_swap->args = (int *)malloc(size * sizeof(int));
 	if (!push_swap->args)
@@ -89,7 +89,7 @@ static int	ft_direct_argv(t_ps *push_swap, int argc, char **argv)
 	if (push_swap->len == 1)
 	{
 		free(push_swap->args);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	return (ft_is_duplicate(push_swap));
 }
