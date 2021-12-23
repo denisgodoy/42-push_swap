@@ -6,14 +6,13 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:21:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/12 11:03:38 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/22 22:07:06 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
 
 static int	*ft_intdup(int *arr, int len);
-static void	ft_get_median(int flag, int *arr, t_ps *push_swap);
 
 void	ft_sort_arr(t_ps *push_swap)
 {
@@ -40,7 +39,12 @@ void	ft_sort_arr(t_ps *push_swap)
 			}
 		}
 	}
-	ft_get_median(flag, arr, push_swap);
+	push_swap->sorted = arr;
+	if (!flag)
+	{
+		free(arr);
+		exit(EXIT_SUCCESS);
+	}
 }
 
 static int	*ft_intdup(int *arr, int len)
@@ -53,19 +57,4 @@ static int	*ft_intdup(int *arr, int len)
 	while (++i < len)
 		ptr[i] = arr[i];
 	return (ptr);
-}
-
-static void	ft_get_median(int flag, int *arr, t_ps *push_swap)
-{
-	if (push_swap->len % 2 != 0)
-		push_swap->mid = arr[push_swap->len / 2];
-	else
-		push_swap->mid = (arr[push_swap->len / 2] + \
-				arr[push_swap->len / 2 - 1]) / 2;
-	free(arr);
-	if (!flag)
-	{
-		free(push_swap->args);
-		exit(EXIT_SUCCESS);
-	}
 }
