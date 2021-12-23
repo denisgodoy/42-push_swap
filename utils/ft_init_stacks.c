@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/22 22:18:47 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:38:25 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	ft_index_lookup(t_ps *push_swap);
 static int	ft_get_index(int look4, t_ps *push_swap);
+static void	ft_which_stack(t_ps *push_swap);
 
 void	ft_init_stacks(t_ps *push_swap)
 {
@@ -49,11 +50,12 @@ static void	ft_index_lookup(t_ps *push_swap)
 		push_swap->stack_a = push_swap->stack_a->next;
 	}
 	push_swap->stack_a = head;
+	ft_which_stack(push_swap);
 }
 
 static int	ft_get_index(int look4, t_ps *push_swap)
 {
-	int	i;
+	int		i;
 
 	i = -1;
 	while (++i < push_swap->len)
@@ -62,4 +64,25 @@ static int	ft_get_index(int look4, t_ps *push_swap)
 			return (i);
 	}
 	return (0);
+}
+
+static void	ft_which_stack(t_ps *push_swap)
+{
+	t_sort	*head;
+
+	head = push_swap->stack_a;
+	push_swap->pivot = 0 + 1;
+	while (push_swap->stack_a != NULL)
+	{
+		if (push_swap->stack_a->index == push_swap->pivot || \
+				push_swap->stack_a->index == 0)
+		{
+			push_swap->stack_a->keep = A;
+			push_swap->pivot = push_swap->stack_a->index + 1;
+		}
+		else
+			push_swap->stack_a->keep = B;
+		push_swap->stack_a = push_swap->stack_a->next;
+	}
+	push_swap->stack_a = head;
 }

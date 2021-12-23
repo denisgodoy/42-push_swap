@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/22 22:18:19 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:41:14 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define PUSH_SWAP_H
 # include "../42-libft/libft.h"
 # include <stdio.h>
+
+# define A	1
+# define B	0
 
 enum e_digits
 {
@@ -25,6 +28,7 @@ typedef struct s_sort
 {
 	int				num;
 	int				index;
+	int				keep;
 	struct s_sort	*next;
 }	t_sort;
 
@@ -36,7 +40,7 @@ typedef struct s_ps
 	int		last;
 	int		min;
 	int		max;
-	int		mid;
+	int		pivot;
 	int		*sorted;
 	t_sort	*stack_a;
 	t_sort	*stack_b;

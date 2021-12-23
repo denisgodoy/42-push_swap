@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/22 22:04:11 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/23 00:19:53 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_algorithm(t_ps *push_swap)
 {
 	if (push_swap->len <= 3)
 		ft_small_sort(push_swap);
+	// ft_sort_stack(push_swap);
 }
 
 static void	ft_small_sort(t_ps *push_swap)
@@ -96,4 +97,15 @@ static void	ft_small_sort(t_ps *push_swap)
 // 	if (ft_llsize(push_swap->stack_a) == 3)
 // 		ft_small_sort(push_swap);
 // 	push_swap->last = push_swap->stack_a->num;
+// }
+
+// static void	ft_sort_stack(t_ps *push_swap)
+// {
+// 	push_swap->pivot_i = push_swap->stack_a->index;
+// 	while (push_swap->stack_a->num != push_swap->last)
+// 	{
+// 		if (push_swap->stack_a->next->index != push_swap->pivot_i + 1)
+// 			ft_push(&push_swap->stack_a, &push_swap->stack_b, "pb");
+// 		ft_rotate(&push_swap->stack_a, "ra");
+// 	}
 // }
