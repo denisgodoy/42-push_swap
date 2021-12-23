@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/23 11:41:14 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:02:37 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		ft_check_digits(t_ps *push_swap, char *arg, int direct);
 int		ft_free_arr(char **args);
 void	ft_init_stacks(t_ps *push_swap);
 int		ft_is_duplicate(t_ps *push_swap);
-int		ft_is_sorted(t_ps *push_swap);
+int		ft_is_sorted(t_sort **stack);
 void	ft_sort_arr(t_ps *push_swap);
 
 void	ft_push(t_sort **src, t_sort **dst, char *op);

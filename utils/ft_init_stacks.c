@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/23 11:38:25 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/23 16:33:18 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	ft_which_stack(t_ps *push_swap)
 	t_sort	*head;
 
 	head = push_swap->stack_a;
-	push_swap->pivot = 0 + 1;
+	push_swap->pivot = push_swap->stack_a->index + 1;
 	while (push_swap->stack_a != NULL)
 	{
 		if (push_swap->stack_a->index == push_swap->pivot || \

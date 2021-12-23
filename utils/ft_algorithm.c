@@ -6,106 +6,76 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/23 00:19:53 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:03:27 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
 
-static void	ft_small_sort(t_ps *push_swap);
-// static void	ft_sort_stack(t_ps *push_swap);
-
-static void	ft_print_stack(t_sort **stack)
-{
-	t_sort	*temp;
-
-	temp = *stack;
-	while (temp != NULL)
-	{
-		printf("\naddr %p\n", temp);
-		printf("num %d\n", temp->num);
-		printf("next %p\n", temp->next);
-		temp = temp->next;
-	}
-}
+static void	ft_small_sort(t_sort **stack);
+static void	ft_split_stack(t_ps *push_swap);
 
 void	ft_algorithm(t_ps *push_swap)
 {
 	if (push_swap->len <= 3)
-		ft_small_sort(push_swap);
-	// ft_sort_stack(push_swap);
+		ft_small_sort(&push_swap->stack_a);
+	ft_split_stack(push_swap);
 }
 
-static void	ft_small_sort(t_ps *push_swap)
+static void	ft_small_sort(t_sort **stack)
 {
-	if (ft_llsize(push_swap->stack_a) < 3 && \
-		push_swap->stack_a->num > push_swap->stack_a->next->num)
+	if (ft_llsize(*stack) < 3 && \
+		(*stack)->num > (*stack)->next->num)
 	{
-		ft_swap(&push_swap->stack_a, "sa");
-		ft_llclear(&push_swap->stack_a, free);
+		ft_swap(stack, "sa");
+		ft_llclear(stack, free);
 		exit(EXIT_SUCCESS);
 	}
-	else if (push_swap->stack_a->num > push_swap->stack_a->next->num && \
-		push_swap->stack_a->next->num < ft_lllast(push_swap->stack_a)->num)
-		ft_rotate(&push_swap->stack_a, "ra");
-	else if (push_swap->stack_a->num > push_swap->stack_a->next->num && \
-		push_swap->stack_a->next->num > ft_lllast(push_swap->stack_a)->num)
+	else if ((*stack)->num > (*stack)->next->num && \
+		(*stack)->next->num < ft_lllast((*stack))->num)
+		ft_rotate(&(*stack), "ra");
+	else if ((*stack)->num > (*stack)->next->num && \
+		(*stack)->next->num > ft_lllast((*stack))->num)
 	{
-		ft_rotate(&push_swap->stack_a, "ra");
-		ft_swap(&push_swap->stack_a, "sa");
+		ft_rotate(stack, "ra");
+		ft_swap(stack, "sa");
 	}
-	else if (push_swap->stack_a->num < push_swap->stack_a->next->num && \
-		push_swap->stack_a->next->num > ft_lllast(push_swap->stack_a)->num
-		&& push_swap->stack_a->num < ft_lllast(push_swap->stack_a)->num)
+	else if ((*stack)->num < (*stack)->next->num && \
+		(*stack)->next->num > ft_lllast((*stack))->num
+		&& (*stack)->num < ft_lllast((*stack))->num)
 	{
-		ft_swap(&push_swap->stack_a, "sa");
-		ft_rotate(&push_swap->stack_a, "ra");
+		ft_swap(stack, "sa");
+		ft_rotate(stack, "ra");
 	}
-	else if (push_swap->stack_a->num < push_swap->stack_a->next->num && \
-		push_swap->stack_a->num > ft_lllast(push_swap->stack_a)->num)
-		ft_reverse_rotate(&push_swap->stack_a, "rra");
-	else if (ft_is_sorted(push_swap) && push_swap->stack_b == NULL)
-	{
-		ft_print_stack(&push_swap->stack_a);
-		ft_llclear(&push_swap->stack_a, free);
-		exit(EXIT_SUCCESS);
-	}
-	else if (ft_is_sorted(push_swap) && push_swap->stack_b != NULL)
-	{
-		while (ft_llsize(push_swap->stack_b))
-			ft_push(&push_swap->stack_b, &push_swap->stack_a, "pa");
-	}
-	ft_small_sort(push_swap);
+	else if ((*stack)->num < (*stack)->next->num && \
+		(*stack)->num > ft_lllast((*stack))->num)
+		ft_reverse_rotate(&(*stack), "rra");
+	else if (ft_is_sorted(stack))
+		return ;
+	ft_small_sort(stack);
 }
 
-// static void	ft_sort_stack(t_ps *push_swap)
-// {
-// 	t_sort *temp;
+static void	ft_split_stack(t_ps *push_swap)
+{
+	t_sort	*head;
+	int		count;
 
-// 	if (push_swap->last == push_swap->min)
-// 		ft_reverse_rotate(&push_swap->stack_a, "rra");
-// 	if (push_swap->last == push_swap->max)
-// 		ft_rotate(&push_swap->stack_a, "ra");
-// 	temp = push_swap->stack_a;
-// 	while (temp->num != push_swap->last || ft_llsize(push_swap->stack_a) > 3)
-// 	{
-// 		if (temp->num < push_swap->last)
-// 			ft_push(&push_swap->stack_a, &push_swap->stack_b, "pb");
-// 		ft_rotate(&push_swap->stack_a, "ra");
-// 		temp = push_swap->stack_a;
-// 	}
-// 	if (ft_llsize(push_swap->stack_a) == 3)
-// 		ft_small_sort(push_swap);
-// 	push_swap->last = push_swap->stack_a->num;
-// }
-
-// static void	ft_sort_stack(t_ps *push_swap)
-// {
-// 	push_swap->pivot_i = push_swap->stack_a->index;
-// 	while (push_swap->stack_a->num != push_swap->last)
-// 	{
-// 		if (push_swap->stack_a->next->index != push_swap->pivot_i + 1)
-// 			ft_push(&push_swap->stack_a, &push_swap->stack_b, "pb");
-// 		ft_rotate(&push_swap->stack_a, "ra");
-// 	}
-// }
+	count = 1;
+	head = push_swap->stack_a;
+	while (head->num != push_swap->last)
+	{
+		if (head->keep == B)
+			ft_push(&push_swap->stack_a, &push_swap->stack_b, "pb");
+		else
+		{
+			ft_rotate(&push_swap->stack_a, "ra");
+			count++;
+		}
+		head = push_swap->stack_a;
+	}
+	if (push_swap->stack_a->keep == B)
+		ft_push(&push_swap->stack_a, &push_swap->stack_b, "pb");
+	if (ft_llsize(push_swap->stack_a) == 3)
+		ft_small_sort(&push_swap->stack_a);
+	push_swap->pivot = ft_lllast(push_swap->stack_a)->index;
+}
