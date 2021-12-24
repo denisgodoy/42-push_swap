@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:21:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/22 22:07:06 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/23 21:00:19 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_sort_arr(t_ps *push_swap)
 		free(arr);
 		exit(EXIT_SUCCESS);
 	}
+	push_swap->mid = arr[push_swap->len / 2];
 }
 
 static int	*ft_intdup(int *arr, int len)

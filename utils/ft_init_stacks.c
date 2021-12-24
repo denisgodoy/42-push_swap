@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/23 16:33:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/24 14:43:42 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_init_stacks(t_ps *push_swap)
 			push_swap->min = push_swap->args[i];
 		ft_lladd_back(&push_swap->stack_a, ft_llnew(push_swap->args[i]));
 	}
-	push_swap->last = ft_lllast(push_swap->stack_a)->num;
 	ft_index_lookup(push_swap);
 	free(push_swap->sorted);
 	free(push_swap->args);
@@ -50,6 +49,7 @@ static void	ft_index_lookup(t_ps *push_swap)
 		push_swap->stack_a = push_swap->stack_a->next;
 	}
 	push_swap->stack_a = head;
+	push_swap->last = push_swap->len - 1;
 	ft_which_stack(push_swap);
 }
 
@@ -70,18 +70,29 @@ static void	ft_which_stack(t_ps *push_swap)
 {
 	t_sort	*head;
 
+	push_swap->count_pb = 0;
 	head = push_swap->stack_a;
-	push_swap->pivot = push_swap->stack_a->index + 1;
+	if (push_swap->stack_a->index == push_swap->last)
+	{
+		ft_rotate(&push_swap->stack_a, "ra");
+		head = push_swap->stack_a;
+	}
+	push_swap->pivot = push_swap->stack_a->index;
 	while (push_swap->stack_a != NULL)
 	{
-		if (push_swap->stack_a->index == push_swap->pivot || \
-				push_swap->stack_a->index == 0)
+		if (push_swap->stack_a->index == push_swap->pivot)
 		{
-			push_swap->stack_a->keep = A;
-			push_swap->pivot = push_swap->stack_a->index + 1;
+			push_swap->stack_a->keep = B;
+			push_swap->count_pb++;
+		}
+		else if (push_swap->stack_a->index == push_swap->pivot + 1)
+		{
+			push_swap->stack_a->keep = B;
+			push_swap->pivot = push_swap->stack_a->index;
+			push_swap->count_pb++;
 		}
 		else
-			push_swap->stack_a->keep = B;
+			push_swap->stack_a->keep = A;
 		push_swap->stack_a = push_swap->stack_a->next;
 	}
 	push_swap->stack_a = head;
