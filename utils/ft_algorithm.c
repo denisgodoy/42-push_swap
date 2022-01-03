@@ -6,13 +6,13 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/24 14:50:35 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/03 20:41:14 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
 
-static void	ft_small_sort(t_sort **stack);
+// static void	ft_small_sort(t_sort **stack);
 // static void	ft_small_sort_reverse(t_sort **stack);
 static void	ft_split_stack(t_ps *push_swap);
 // static void	ft_empty_stack(t_ps *push_swap);
@@ -20,43 +20,43 @@ static void	ft_split_stack(t_ps *push_swap);
 
 void	ft_algorithm(t_ps *push_swap)
 {
-	if (push_swap->len <= 3)
-		ft_small_sort(&push_swap->stack_a);
+	// if (push_swap->len <= 3)
+	// 	ft_small_sort(&push_swap->stack_a);
 	ft_split_stack(push_swap);
 }
 
-static void	ft_small_sort(t_sort **stack)
-{
-	if (ft_llsize(*stack) < 3 && \
-		(*stack)->num > (*stack)->next->num)
-	{
-		ft_swap(stack, "sa");
-		ft_llclear(stack, free);
-		exit(EXIT_SUCCESS);
-	}
-	else if ((*stack)->num > (*stack)->next->num && \
-		(*stack)->next->num < ft_lllast((*stack))->num)
-		ft_rotate(&(*stack), "ra");
-	else if ((*stack)->num > (*stack)->next->num && \
-		(*stack)->next->num > ft_lllast((*stack))->num)
-	{
-		ft_rotate(stack, "ra");
-		ft_swap(stack, "sa");
-	}
-	else if ((*stack)->num < (*stack)->next->num && \
-		(*stack)->next->num > ft_lllast((*stack))->num
-		&& (*stack)->num < ft_lllast((*stack))->num)
-	{
-		ft_swap(stack, "sa");
-		ft_rotate(stack, "ra");
-	}
-	else if ((*stack)->num < (*stack)->next->num && \
-		(*stack)->num > ft_lllast((*stack))->num)
-		ft_reverse_rotate(&(*stack), "rra");
-	else if (ft_is_sorted(stack))
-		return ;
-	ft_small_sort(stack);
-}
+// static void	ft_small_sort(t_sort **stack)
+// {
+// 	if (ft_llsize(*stack) < 3 && \
+// 		(*stack)->num > (*stack)->next->num)
+// 	{
+// 		ft_swap(stack, "sa");
+// 		ft_llclear(stack, free);
+// 		exit(EXIT_SUCCESS);
+// 	}
+// 	else if ((*stack)->num > (*stack)->next->num && \
+// 		(*stack)->next->num < ft_lllast((*stack))->num)
+// 		ft_rotate(&(*stack), "ra");
+// 	else if ((*stack)->num > (*stack)->next->num && \
+// 		(*stack)->next->num > ft_lllast((*stack))->num)
+// 	{
+// 		ft_rotate(stack, "ra");
+// 		ft_swap(stack, "sa");
+// 	}
+// 	else if ((*stack)->num < (*stack)->next->num && \
+// 		(*stack)->next->num > ft_lllast((*stack))->num
+// 		&& (*stack)->num < ft_lllast((*stack))->num)
+// 	{
+// 		ft_swap(stack, "sa");
+// 		ft_rotate(stack, "ra");
+// 	}
+// 	else if ((*stack)->num < (*stack)->next->num && \
+// 		(*stack)->num > ft_lllast((*stack))->num)
+// 		ft_reverse_rotate(&(*stack), "rra");
+// 	else if (ft_is_sorted(stack))
+// 		return ;
+// 	ft_small_sort(stack);
+// }
 
 // static void	ft_small_sort_reverse(t_sort **stack)
 // {

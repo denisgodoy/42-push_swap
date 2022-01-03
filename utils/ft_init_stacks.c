@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/24 14:43:42 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/03 20:29:06 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,8 @@ static void	ft_which_stack(t_ps *push_swap)
 		push_swap->stack_a = push_swap->stack_a->next;
 	}
 	push_swap->stack_a = head;
+	if (push_swap->count_pb == push_swap->len)
+	{
+		exit(EXIT_SUCCESS);
+	}
 }

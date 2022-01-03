@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/24 13:48:24 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/03 20:44:21 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(int argc, char **argv)
 	}
 	ft_init_stacks(&push_swap);
 	ft_algorithm(&push_swap);
-	printf("\nstack b size %d\n", ft_llsize(push_swap.stack_b));
+	printf("\n##############################\nstack b size %d\n", ft_llsize(push_swap.stack_b));
 	ft_print_stack(&push_swap.stack_b);
-	printf("\nstack a size %d\n", ft_llsize(push_swap.stack_a));
+	printf("\n##############################\nstack a size %d\n", ft_llsize(push_swap.stack_a));
 	ft_print_stack(&push_swap.stack_a);
 	return (0);
 }
