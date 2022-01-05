@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/24 13:57:38 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/04 21:32:29 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct s_ps
 	int		mid;
 	int		pivot;
 	int		count_pb;
+	int		mkup1;
+	int		mkup2;
 	int		*sorted;
 	t_sort	*stack_a;
 	t_sort	*stack_b;
