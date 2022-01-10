@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/03 23:08:57 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/06 22:39:12 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ static void	ft_split_stack(t_ps *push_swap)
 		}
 		head = push_swap->stack_a;
 	}
-	// ft_empty_stack(push_swap);
-	// ft_merge_stacks(push_swap);
 }
 
 // static void	ft_empty_stack(t_ps *push_swap)
