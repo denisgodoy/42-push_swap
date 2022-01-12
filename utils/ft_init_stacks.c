@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/12 00:52:49 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/12 01:01:34 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,14 @@ static void	ft_which_stack(t_ps *push_swap)
 	// }
 }
 
-void	reverse_ll(t_sort **head_ref)
+void	reverse_ll(t_sort **head)
 {
 	t_sort *prev;
     t_sort *current;
     t_sort *next;
 
 	prev = NULL;
-	current = *head_ref;
+	current = *head;
 	next = NULL;
     while (current != NULL)
 	{
@@ -103,7 +103,7 @@ void	reverse_ll(t_sort **head_ref)
         prev = current;
         current = next;
     }
-    *head_ref = prev;
+    *head = prev;
 }
 
 void	keep_or_push(t_ps *push_swap)
@@ -136,16 +136,12 @@ void	keep_or_push(t_ps *push_swap)
 
 static void	ft_mkup1(t_ps *push_swap)
 {
-	int	position;
 	int	count;
 
 	count = 0;
-	position = 0;
-	if (push_swap->min_pos < push_swap->len / 2)
-		position = 1;
 	while (push_swap->stack_a->num != push_swap->min)
 	{
-		if (position)
+		if (push_swap->min_pos < push_swap->len / 2)
 			ft_rotate(&push_swap->stack_a, NULL);
 		else
 			ft_reverse_rotate(&push_swap->stack_a, NULL);
@@ -155,7 +151,7 @@ static void	ft_mkup1(t_ps *push_swap)
 	keep_or_push(push_swap);
 	while (count)
 	{
-		if (position)
+		if (push_swap->min_pos < push_swap->len / 2)
 			ft_reverse_rotate(&push_swap->stack_a, NULL);
 		else
 			ft_rotate(&push_swap->stack_a, NULL);
