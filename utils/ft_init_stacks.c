@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/11 23:47:56 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/12 00:52:49 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ static void	ft_which_stack(t_ps *push_swap)
 	head = push_swap->stack_a;
 	push_swap->count_pb = 0;
 	ft_mkup1(push_swap);
-	keep_or_push(push_swap);
 	// if (push_swap->count_pb == push_swap->len)
 	// {
 	// 	exit(EXIT_SUCCESS);
@@ -93,7 +92,7 @@ void	reverse_ll(t_sort **head_ref)
 	t_sort *prev;
     t_sort *current;
     t_sort *next;
-	
+
 	prev = NULL;
 	current = *head_ref;
 	next = NULL;
@@ -118,16 +117,11 @@ void	keep_or_push(t_ps *push_swap)
 	push_swap->pivot = push_swap->stack_a->lis;
 	while (push_swap->stack_a != NULL)
 	{
-		if (push_swap->stack_a->lis == push_swap->pivot && !flag)
+		if (push_swap->stack_a->lis == push_swap->pivot - 1 || \
+				(push_swap->stack_a->lis == push_swap->pivot && !flag))
 		{
-			push_swap->stack_a->keep = A;
 			push_swap->pivot = push_swap->stack_a->lis;
 			flag++;
-		}
-		else if (push_swap->stack_a->lis == push_swap->pivot - 1)
-		{
-			push_swap->stack_a->keep = A;
-			push_swap->pivot = push_swap->stack_a->lis;
 		}
 		else
 		{
@@ -143,17 +137,30 @@ void	keep_or_push(t_ps *push_swap)
 static void	ft_mkup1(t_ps *push_swap)
 {
 	int	position;
+	int	count;
 
+	count = 0;
 	position = 0;
 	if (push_swap->min_pos < push_swap->len / 2)
 		position = 1;
-	if (position)
-		while (push_swap->stack_a->num != push_swap->min)
-			ft_rotate(&push_swap->stack_a, "ra");
-	else
-		while (push_swap->stack_a->num != push_swap->min)
-			ft_reverse_rotate(&push_swap->stack_a, "rra");
+	while (push_swap->stack_a->num != push_swap->min)
+	{
+		if (position)
+			ft_rotate(&push_swap->stack_a, NULL);
+		else
+			ft_reverse_rotate(&push_swap->stack_a, NULL);
+		count++;
+	}
 	lis(push_swap);
+	keep_or_push(push_swap);
+	while (count)
+	{
+		if (position)
+			ft_reverse_rotate(&push_swap->stack_a, NULL);
+		else
+			ft_rotate(&push_swap->stack_a, NULL);
+		count--;
+	}
 }
 
 static int	*ft_intdup(t_sort **arr, int len)
@@ -224,6 +231,5 @@ void	lis(t_ps *push_swap)
 		}
 		i++;
 	}
-	free(arr);
 	lis_to_list(push_swap);
 }
