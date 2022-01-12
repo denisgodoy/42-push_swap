@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/12 01:01:34 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/12 02:04:08 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	ft_index_lookup(t_ps *push_swap)
 
 static int	ft_get_index(int look4, t_ps *push_swap)
 {
-	int		i;
+	int	i;
 
 	i = -1;
 	while (++i < push_swap->len)
@@ -162,8 +162,8 @@ static void	ft_mkup1(t_ps *push_swap)
 static int	*ft_intdup(t_sort **arr, int len)
 {
 	t_sort	*head;
-	int	*ptr;
-	int	i;
+	int		*ptr;
+	int		i;
 
 	head = *arr;
 	ptr = (int *)malloc(len * sizeof(int));

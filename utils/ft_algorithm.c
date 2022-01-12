@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/11 23:13:45 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/12 02:00:19 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,8 @@ static void	ft_split_stack(t_ps *push_swap)
 {
 	t_sort	*head;
 	int		count;
-	int		count_ra;
 
 	count = push_swap->count_pb;
-	count_ra = 0;
 	head = push_swap->stack_a;
 	while (count)
 	{
@@ -107,10 +105,7 @@ static void	ft_split_stack(t_ps *push_swap)
 			count--;
 		}
 		else
-		{
 			ft_rotate(&push_swap->stack_a, "ra");
-			count_ra++;
-		}
 		head = push_swap->stack_a;
 	}
 }
