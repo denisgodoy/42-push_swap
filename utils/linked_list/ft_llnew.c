@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:41:01 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/24 14:08:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/11 22:41:05 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_sort	*ft_llnew(int content)
 	new->num = content;
 	new->index = 0;
 	new->keep = B;
+	new->lis = 1;
 	new->next = NULL;
 	return (new);
 }

@@ -2,7 +2,7 @@ NAME := push_swap
 
 CC := gcc
 
-CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS := -Wall -Wextra -Werror
 
 OBJ_DIR := obj
 

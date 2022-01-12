@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/04 21:32:29 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/11 22:40:08 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,19 @@ typedef struct s_sort
 	int				num;
 	int				index;
 	int				keep;
+	int				lis;
 	struct s_sort	*next;
 }	t_sort;
 
 typedef struct s_ps
 {
+	int		*lis;
 	int		*args;
 	char	**temp;
 	int		len;
 	int		last;
 	int		min;
+	int		min_pos;
 	int		max;
 	int		mid;
 	int		pivot;
