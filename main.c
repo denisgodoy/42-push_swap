@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/11 20:14:50 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/11 23:00:12 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static void	ft_print_stack(t_sort **stack)
 		printf("num %d\n", temp->num);
 		printf("index %d\n", temp->index);
 		printf("keep %d\n", temp->keep);
+		printf("lis %d\n", temp->lis);
 		printf("next %p\n", temp->next);
 		temp = temp->next;
 	}

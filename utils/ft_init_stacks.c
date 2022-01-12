@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/11 22:52:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/11 23:47:56 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_get_index(int look4, t_ps *push_swap);
 static void	ft_which_stack(t_ps *push_swap);
 static void	ft_mkup1(t_ps *push_swap);
 void	lis(t_ps *push_swap);
+void	keep_or_push(t_ps *push_swap);
+void	reverse_ll(t_sort **head_ref);
 
 void	ft_init_stacks(t_ps *push_swap)
 {
@@ -79,47 +81,64 @@ static void	ft_which_stack(t_ps *push_swap)
 	head = push_swap->stack_a;
 	push_swap->count_pb = 0;
 	ft_mkup1(push_swap);
+	keep_or_push(push_swap);
 	// if (push_swap->count_pb == push_swap->len)
 	// {
 	// 	exit(EXIT_SUCCESS);
 	// }
 }
 
-// static int	ft_mkup1(t_ps *push_swap)
-// {
-// 	t_sort	*head;
-// 	int		mkup1;
+void	reverse_ll(t_sort **head_ref)
+{
+	t_sort *prev;
+    t_sort *current;
+    t_sort *next;
+	
+	prev = NULL;
+	current = *head_ref;
+	next = NULL;
+    while (current != NULL)
+	{
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    *head_ref = prev;
+}
 
-// 	mkup1 = 0;
-// 	head = push_swap->stack_a;
-// 	if (push_swap->stack_a->index == push_swap->last)
-// 	{
-// 		ft_rotate(&push_swap->stack_a, NULL);
-// 		head = push_swap->stack_a;
-// 	}
-// 	push_swap->pivot = push_swap->stack_a->index;
-// 	while (push_swap->stack_a != NULL)
-// 	{
-// 		if (push_swap->stack_a->index == push_swap->pivot)
-// 		{
-// 			push_swap->stack_a->keep = B;
-// 			push_swap->count_pb++;
-// 			mkup1++;
-// 		}
-// 		else if (push_swap->stack_a->index == push_swap->pivot + 1)
-// 		{
-// 			push_swap->stack_a->keep = B;
-// 			push_swap->pivot = push_swap->stack_a->index;
-// 			push_swap->count_pb++;
-// 			mkup1++;
-// 		}
-// 		else
-// 			push_swap->stack_a->keep = A;
-// 		push_swap->stack_a = push_swap->stack_a->next;
-// 	}
-// 	push_swap->stack_a = head;
-// 	return (mkup1);
-// }
+void	keep_or_push(t_ps *push_swap)
+{
+	t_sort	*head;
+	int		flag;
+
+	flag = 0;
+	reverse_ll(&push_swap->stack_a);
+	head = push_swap->stack_a;
+	push_swap->pivot = push_swap->stack_a->lis;
+	while (push_swap->stack_a != NULL)
+	{
+		if (push_swap->stack_a->lis == push_swap->pivot && !flag)
+		{
+			push_swap->stack_a->keep = A;
+			push_swap->pivot = push_swap->stack_a->lis;
+			flag++;
+		}
+		else if (push_swap->stack_a->lis == push_swap->pivot - 1)
+		{
+			push_swap->stack_a->keep = A;
+			push_swap->pivot = push_swap->stack_a->lis;
+		}
+		else
+		{
+			push_swap->stack_a->keep = B;
+			push_swap->count_pb++;
+		}
+		push_swap->stack_a = push_swap->stack_a->next;
+	}
+	push_swap->stack_a = head;
+	reverse_ll(&push_swap->stack_a);
+}
 
 static void	ft_mkup1(t_ps *push_swap)
 {
@@ -167,7 +186,20 @@ static int	*ft_lisdup(int len)
 	return (ptr);
 }
 
+void	lis_to_list(t_ps *push_swap)
+{
+	t_sort	*head;
+	int		i;
 
+	head = push_swap->stack_a;
+	i = -1;
+	while (push_swap->stack_a != NULL)
+	{
+		push_swap->stack_a->lis = push_swap->lis[++i];
+		push_swap->stack_a = push_swap->stack_a->next;
+	}
+	push_swap->stack_a = head;
+}
 
 void	lis(t_ps *push_swap)
 {
@@ -192,4 +224,6 @@ void	lis(t_ps *push_swap)
 		}
 		i++;
 	}
+	free(arr);
+	lis_to_list(push_swap);
 }

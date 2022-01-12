@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:41:01 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/11 22:41:05 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/11 23:35:05 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_sort	*ft_llnew(int content)
 		return (0);
 	new->num = content;
 	new->index = 0;
-	new->keep = B;
+	new->keep = A;
 	new->lis = 1;
 	new->next = NULL;
 	return (new);
