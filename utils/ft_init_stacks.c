@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/12 23:48:01 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/13 00:00:56 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int	max_lis(t_ps *push_swap)
 	while (len--)
 		if (max_lis < push_swap->lis[++i])
 			max_lis = push_swap->lis[i];
-	printf("max lis %d\n\n", max_lis);
+	free(push_swap->lis);
 	return (max_lis);
 }
 
@@ -243,5 +243,6 @@ void	lis(t_ps *push_swap)
 		}
 		i++;
 	}
+	free(arr);
 	lis_to_list(push_swap);
 }

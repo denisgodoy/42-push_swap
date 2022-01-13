@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/11 23:00:12 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/13 00:00:07 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static void	ft_print_stack(t_sort **stack);
 
-static void	ft_print_lis(t_ps *push_swap)
-{
-	int	i;
+// static void	ft_print_lis(t_ps *push_swap)
+// {
+// 	int	i;
 
-	printf("\n");
-	i = -1;
-	while (++i < push_swap->len)
-		printf("lis %d\n", push_swap->lis[i]);
-}
+// 	printf("\n");
+// 	i = -1;
+// 	while (++i < push_swap->len)
+// 		printf("lis %d\n", push_swap->lis[i]);
+// }
 
 int	main(int argc, char **argv)
 {
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	ft_print_stack(&push_swap.stack_b);
 	printf("\n##############################\nstack a size %d\n", ft_llsize(push_swap.stack_a));
 	ft_print_stack(&push_swap.stack_a);
-	ft_print_lis(&push_swap);
+	// ft_print_lis(&push_swap);
 	return (0);
 }
 
