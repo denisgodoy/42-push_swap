@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/13 00:00:56 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/13 00:55:23 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,8 @@ static int	ft_get_index(int look4, t_ps *push_swap)
 
 	i = -1;
 	while (++i < push_swap->len)
-	{
 		if (push_swap->sorted[i] == look4)
 			return (i);
-	}
 	return (0);
 }
 
