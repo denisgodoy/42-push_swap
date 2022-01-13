@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/12 02:04:08 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/12 23:48:01 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,22 @@ void	reverse_ll(t_sort **head)
     *head = prev;
 }
 
+int	max_lis(t_ps *push_swap)
+{
+	int	i;
+	int	len;
+	int	max_lis;
+
+	len = push_swap->len;
+	max_lis = 1;
+	i = -1;
+	while (len--)
+		if (max_lis < push_swap->lis[++i])
+			max_lis = push_swap->lis[i];
+	printf("max lis %d\n\n", max_lis);
+	return (max_lis);
+}
+
 void	keep_or_push(t_ps *push_swap)
 {
 	t_sort	*head;
@@ -114,7 +130,7 @@ void	keep_or_push(t_ps *push_swap)
 	flag = 0;
 	reverse_ll(&push_swap->stack_a);
 	head = push_swap->stack_a;
-	push_swap->pivot = push_swap->stack_a->lis;
+	push_swap->pivot = max_lis(push_swap);
 	while (push_swap->stack_a != NULL)
 	{
 		if (push_swap->stack_a->lis == push_swap->pivot - 1 || \
