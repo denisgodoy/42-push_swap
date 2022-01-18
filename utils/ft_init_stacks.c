@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/13 00:55:23 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:41:48 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,25 @@ static void	ft_mkup1(t_ps *push_swap);
 void	lis(t_ps *push_swap);
 void	keep_or_push(t_ps *push_swap);
 void	reverse_ll(t_sort **head_ref);
+
+
+int	*ft_intdup(t_sort **arr, int len)
+{
+	t_sort	*head;
+	int		*ptr;
+	int		i;
+
+	head = *arr;
+	ptr = (int *)malloc(len * sizeof(int));
+	i = -1;
+	while (*arr != NULL)
+	{
+		ptr[++i] = (*arr)->num;
+		*arr = (*arr)->next;
+	}
+	*arr = head;
+	return (ptr);
+}
 
 void	ft_init_stacks(t_ps *push_swap)
 {
@@ -171,24 +190,6 @@ static void	ft_mkup1(t_ps *push_swap)
 			ft_rotate(&push_swap->stack_a, NULL);
 		count--;
 	}
-}
-
-static int	*ft_intdup(t_sort **arr, int len)
-{
-	t_sort	*head;
-	int		*ptr;
-	int		i;
-
-	head = *arr;
-	ptr = (int *)malloc(len * sizeof(int));
-	i = -1;
-	while (*arr != NULL)
-	{
-		ptr[++i] = (*arr)->num;
-		*arr = (*arr)->next;
-	}
-	*arr = head;
-	return (ptr);
 }
 
 static int	*ft_lisdup(int len)

@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/12 02:00:19 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/13 21:12:42 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,28 @@ void	ft_algorithm(t_ps *push_swap)
 // 	ft_small_sort_reverse(stack);
 // }
 
+void	move_stacks(t_ps *push_swap)
+{
+	int	*stack_a;
+	int	*stack_b;
+	int	count;
+	t_sort	*head;
+
+	head = push_swap->stack_a;
+	count = -1;
+	stack_a = ft_intdup(&push_swap->stack_a, ft_llsize(push_swap->stack_a));
+	stack_b = ft_intdup(&push_swap->stack_b, ft_llsize(push_swap->stack_b));
+	while (++count <= ft_llsize(push_swap->stack_a) / 2)
+	{
+		push_swap->stack_a->move[0] = count;
+		push_swap->stack_a = push_swap->stack_a->next;
+	}
+	push_swap->stack_a = head;
+	count = -1;
+	while (++count < ft_llsize(push_swap->stack_b) / 2)
+		printf("\nb");
+}
+
 static void	ft_split_stack(t_ps *push_swap)
 {
 	t_sort	*head;
@@ -108,6 +130,7 @@ static void	ft_split_stack(t_ps *push_swap)
 			ft_rotate(&push_swap->stack_a, "ra");
 		head = push_swap->stack_a;
 	}
+	move_stacks(push_swap);
 }
 
 // static void	ft_empty_stack(t_ps *push_swap)

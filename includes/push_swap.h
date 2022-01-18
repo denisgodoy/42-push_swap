@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/11 22:40:08 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:41:58 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_sort
 	int				index;
 	int				keep;
 	int				lis;
+	int				move[2];
 	struct s_sort	*next;
 }	t_sort;
 
@@ -61,6 +62,7 @@ void	ft_init_stacks(t_ps *push_swap);
 int		ft_is_duplicate(t_ps *push_swap);
 int		ft_is_sorted(t_sort **stack);
 void	ft_sort_arr(t_ps *push_swap);
+int		*ft_intdup(t_sort **arr, int len);
 
 void	ft_push(t_sort **src, t_sort **dst, char *op);
 void	ft_reverse_rotate(t_sort **stack, char *op);

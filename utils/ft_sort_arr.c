@@ -6,13 +6,13 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:21:47 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/11 22:13:27 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:43:10 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
 
-static int	*ft_intdup(int *arr, int len);
+static int	*ft_intdup2(int *arr, int len);
 
 void	ft_sort_arr(t_ps *push_swap)
 {
@@ -22,7 +22,7 @@ void	ft_sort_arr(t_ps *push_swap)
 	int	i;
 	int	j;
 
-	arr = ft_intdup(push_swap->args, push_swap->len);
+	arr = ft_intdup2(push_swap->args, push_swap->len);
 	flag = 0;
 	i = -1;
 	while (++i < push_swap->len)
@@ -48,7 +48,7 @@ void	ft_sort_arr(t_ps *push_swap)
 	push_swap->mid = arr[push_swap->len / 2];
 }
 
-static int	*ft_intdup(int *arr, int len)
+static int	*ft_intdup2(int *arr, int len)
 {
 	int	*ptr;
 	int	i;
