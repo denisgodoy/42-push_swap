@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 00:23:43 by degabrie          #+#    #+#             */
-/*   Updated: 2021/09/16 09:59:13 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/09/20 11:55:41 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_BONUS_H
-# define FT_PRINTF_BONUS_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <stdarg.h>
-# include "libft/libft.h"
+# include "42-libft/libft.h"
 
-int		ft_flag_format(int p, int c, va_list args);
 int		ft_format(int c, va_list args);
 int		ft_printf(const char *format, ...);
 int		ft_put_di(va_list args);

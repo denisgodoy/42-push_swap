@@ -10,6 +10,7 @@ INCLUDES := -I includes/
 
 HEADERS := includes/push_swap.h
 
+
 SRC := main.c \
 		$(addprefix utils/, \
 		ft_algorithm.c \
@@ -29,7 +30,9 @@ SRC := main.c \
 		ft_llnew.c \
 		ft_llsize.c)
 
-LIB := ./ft_printf/libftprintf.a
+LIB_DIR := lib/42-ft_printf
+
+LIB := $(LIB_DIR)/libftprintf.a
 
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
@@ -40,18 +43,15 @@ $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJ) $(HEADERS)
-	$(MAKE) -C ./42-libft all
-	$(MAKE) -C ./ft_printf all
+	$(MAKE) -C $(LIB_DIR) all
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIB) -o $(NAME)
 
 clean:
-	$(MAKE) -C ./42-libft clean
-	$(MAKE) -C ./ft_printf clean
+	$(MAKE) -C $(LIB_DIR) clean
 	$(RM) -r $(OBJ_DIR)
 
 fclean: clean
-	$(MAKE) -C ./42-libft fclean
-	$(MAKE) -C ./ft_printf fclean
+	$(MAKE) -C $(LIB_DIR) fclean
 	$(RM) $(NAME)
 
 re: fclean all

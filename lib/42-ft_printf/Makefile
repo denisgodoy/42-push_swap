@@ -1,6 +1,6 @@
 NAME := libftprintf.a
 
-LIBFT_DIR := ../42-libft
+LIBFT_DIR := 42-libft
 
 UTILS_DIR := utils
 
@@ -35,20 +35,24 @@ BONUS_SRC_OBJ := $(BONUS_OBJ) $(UTILS_BONUS_OBJ)
 all:	$(NAME)
 
 bonus:	$(BONUS_SRC_OBJ)
+	$(MAKE) -C $(LIBFT_DIR) all
 	rm -f $(NAME)
 	cp $(LIBFT) $(NAME)
 	ar -rcs $(NAME) $(BONUS_SRC_OBJ)
 
 $(NAME):	$(SRC_OBJ)
+	$(MAKE) -C $(LIBFT_DIR) all
 	rm -f $(NAME)
 	cp $(LIBFT) $(NAME)
 	ar -rcs $(NAME) $(SRC_OBJ)
 
 clean:
+	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -f ./a.out
 	rm -f $(SRC_OBJ) $(BONUS_SRC_OBJ)
 
 fclean:	clean
+	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
 
 re:	fclean all

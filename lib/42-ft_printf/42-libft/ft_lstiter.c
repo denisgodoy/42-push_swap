@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_str.c                                    :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 21:39:06 by degabrie          #+#    #+#             */
-/*   Updated: 2021/09/16 09:52:17 by degabrie         ###   ########.fr       */
+/*   Created: 2021/08/13 18:45:19 by degabrie          #+#    #+#             */
+/*   Updated: 2021/09/06 18:03:24 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../ft_printf.h"
+#include	"libft.h"
 
-int	ft_format(int c, va_list args)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int	size;
+	int	i;
 
-	size = 0;
-	if (ft_strchr("di", c))
-		size = ft_put_di(args);
-	else if (c == 'u')
-		size = ft_put_u(args);
-	else if (ft_strchr("cs", c))
-		size = ft_put_cs(c, args);
-	else if (c == '%')
+	i = ft_lstsize(lst);
+	while (i)
 	{
-		ft_putchar_fd('%', 1);
-		size = 1;
+		f(lst->content);
+		lst = lst->next;
+		i--;
 	}
-	else if (ft_strchr("xX", c))
-		size = ft_put_x(c, args);
-	else if (c == 'p')
-		size = ft_put_p(args);
-	return (size);
 }
