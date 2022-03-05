@@ -30,7 +30,7 @@ SRC := main.c \
 		ft_llnew.c \
 		ft_llsize.c)
 
-LIB_DIR := lib/42-ft_printf
+LIB_DIR := ./42-ft_printf
 
 LIB := $(LIB_DIR)/libftprintf.a
 
