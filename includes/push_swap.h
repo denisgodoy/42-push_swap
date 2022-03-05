@@ -6,13 +6,13 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/13 20:41:58 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/03/05 14:39:08 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "../42-libft/libft.h"
+# include "../ft_printf/ft_printf.h"
 # include <stdio.h>
 
 # define A	1

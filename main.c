@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/13 20:23:12 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/03/05 14:25:28 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	ft_print_stack(t_sort **stack);
 // {
 // 	int	i;
 
-// 	printf("\n");
+// 	ft_printf("\n");
 // 	i = -1;
 // 	while (++i < push_swap->len)
-// 		printf("lis %d\n", push_swap->lis[i]);
+// 		ft_printf("lis %d\n", push_swap->lis[i]);
 // }
 
 int	main(int argc, char **argv)
@@ -35,9 +35,9 @@ int	main(int argc, char **argv)
 	}
 	ft_init_stacks(&push_swap);
 	ft_algorithm(&push_swap);
-	printf("\n##############################\nstack b size %d\n", ft_llsize(push_swap.stack_b));
+	ft_printf("\n##############################\nstack b size %d\n", ft_llsize(push_swap.stack_b));
 	ft_print_stack(&push_swap.stack_b);
-	printf("\n##############################\nstack a size %d\n", ft_llsize(push_swap.stack_a));
+	ft_printf("\n##############################\nstack a size %d\n", ft_llsize(push_swap.stack_a));
 	ft_print_stack(&push_swap.stack_a);
 	// ft_print_lis(&push_swap);
 	return (0);
@@ -50,14 +50,14 @@ static void	ft_print_stack(t_sort **stack)
 	temp = *stack;
 	while (temp != NULL)
 	{
-		printf("\naddr %p\n", temp);
-		printf("num %d\n", temp->num);
-		printf("index %d\n", temp->index);
-		printf("keep %d\n", temp->keep);
-		printf("move a %d\n", temp->move[0]);
-		printf("move b %d\n", temp->move[1]);
-		printf("lis %d\n", temp->lis);
-		printf("next %p\n", temp->next);
+		ft_printf("\naddr %p\n", temp);
+		ft_printf("num %d\n", temp->num);
+		ft_printf("index %d\n", temp->index);
+		ft_printf("keep %d\n", temp->keep);
+		ft_printf("move a %d\n", temp->move[0]);
+		ft_printf("move b %d\n", temp->move[1]);
+		ft_printf("lis %d\n", temp->lis);
+		ft_printf("next %p\n", temp->next);
 		temp = temp->next;
 	}
 }

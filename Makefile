@@ -29,7 +29,7 @@ SRC := main.c \
 		ft_llnew.c \
 		ft_llsize.c)
 
-LIB := -L ./42-libft -lft
+LIB := ./ft_printf/libftprintf.a
 
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
@@ -41,14 +41,17 @@ $(OBJ_DIR)/%.o: %.c
 
 $(NAME): $(OBJ) $(HEADERS)
 	$(MAKE) -C ./42-libft all
+	$(MAKE) -C ./ft_printf all
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIB) -o $(NAME)
 
 clean:
 	$(MAKE) -C ./42-libft clean
+	$(MAKE) -C ./ft_printf clean
 	$(RM) -r $(OBJ_DIR)
 
 fclean: clean
 	$(MAKE) -C ./42-libft fclean
+	$(MAKE) -C ./ft_printf fclean
 	$(RM) $(NAME)
 
 re: fclean all
