@@ -10,7 +10,6 @@ INCLUDES := -I includes/
 
 HEADERS := includes/push_swap.h
 
-
 SRC := main.c \
 		$(addprefix utils/, \
 		ft_algorithm.c \
