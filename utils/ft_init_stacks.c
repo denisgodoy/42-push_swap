@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/01/13 20:41:48 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/03/22 19:52:17 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,6 @@ static int	ft_get_index(int look4, t_ps *push_swap)
 
 static void	ft_which_stack(t_ps *push_swap)
 {
-	t_sort	*head;
-
-	head = push_swap->stack_a;
 	push_swap->count_pb = 0;
 	ft_mkup1(push_swap);
 	// if (push_swap->count_pb == push_swap->len)

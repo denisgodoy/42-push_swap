@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2022/03/05 14:25:28 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:50:10 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,11 @@ void	ft_algorithm(t_ps *push_swap)
 
 void	move_stacks(t_ps *push_swap)
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	count;
+	int		count;
 	t_sort	*head;
 
 	head = push_swap->stack_a;
 	count = -1;
-	stack_a = ft_intdup(&push_swap->stack_a, ft_llsize(push_swap->stack_a));
-	stack_b = ft_intdup(&push_swap->stack_b, ft_llsize(push_swap->stack_b));
 	while (++count <= ft_llsize(push_swap->stack_a) / 2)
 	{
 		push_swap->stack_a->move[0] = count;

@@ -6,14 +6,13 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2022/03/05 15:33:32 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/03/22 20:51:38 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../42-ft_printf/ft_printf.h"
-# include <stdio.h>
 
 # define A	1
 # define B	0
