@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2022/03/23 16:50:10 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/03/29 21:41:30 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,6 @@ void	move_stacks(t_ps *push_swap)
 		push_swap->stack_a = push_swap->stack_a->next;
 	}
 	push_swap->stack_a = head;
-	count = -1;
-	while (++count < ft_llsize(push_swap->stack_b) / 2)
-		ft_printf("\nb");
 }
 
 static void	ft_split_stack(t_ps *push_swap)
