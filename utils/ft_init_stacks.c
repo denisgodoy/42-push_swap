@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:57:07 by degabrie          #+#    #+#             */
-/*   Updated: 2022/03/22 19:52:17 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:06:28 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void	ft_mkup1(t_ps *push_swap);
 void	lis(t_ps *push_swap);
 void	keep_or_push(t_ps *push_swap);
 void	reverse_ll(t_sort **head_ref);
-
 
 int	*ft_intdup(t_sort **arr, int len)
 {

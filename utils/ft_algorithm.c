@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:24:57 by degabrie          #+#    #+#             */
-/*   Updated: 2022/03/29 21:41:30 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/04/27 23:23:57 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 // static void	ft_small_sort(t_sort **stack);
 // static void	ft_small_sort_reverse(t_sort **stack);
 static void	ft_split_stack(t_ps *push_swap);
+int 		*ll_to_array(t_sort **stack);
+void		nb_position(t_sort *stack, t_ps *push_swap);
 // static void	ft_empty_stack(t_ps *push_swap);
 // static void	ft_merge_stacks(t_ps *push_swap);
 
@@ -22,7 +24,32 @@ void	ft_algorithm(t_ps *push_swap)
 {
 	// if (push_swap->len <= 3)
 	// 	ft_small_sort(&push_swap->stack_a);
+	t_sort	*head;
+	int		size;
+	int		i;
+
 	ft_split_stack(push_swap);
+	i = -1;
+	size = ft_llsize(push_swap->stack_b);
+	head = push_swap->stack_b;
+	while (++i < (size / 2))
+	{
+		nb_position(push_swap->stack_b, push_swap);
+		push_swap->stack_b = push_swap->stack_b->next;
+	}
+	push_swap->stack_b = head;
+	reverse_ll(&push_swap->stack_b);
+	head = push_swap->stack_b;
+	while (size-- > i)
+	{
+		nb_position(push_swap->stack_b, push_swap);
+		push_swap->stack_b = push_swap->stack_b->next;
+	}
+	push_swap->stack_b = head;
+	reverse_ll(&push_swap->stack_b);
+	// push_swap->stack_b = head;
+	// ft_radix_sort(&push_swap->stack_a, &push_swap->stack_b);
+	// ft_merge_stacks(push_swap);
 }
 
 // static void	ft_small_sort(t_sort **stack)
@@ -90,20 +117,29 @@ void	ft_algorithm(t_ps *push_swap)
 // 	ft_small_sort_reverse(stack);
 // }
 
-void	move_stacks(t_ps *push_swap)
-{
-	int		count;
-	t_sort	*head;
+// void    ft_radix_sort(t_sort **stack_a, t_sort **stack_b)
+// {
+//     int        i;
+//     int        j;
+//     int        size;
 
-	head = push_swap->stack_a;
-	count = -1;
-	while (++count <= ft_llsize(push_swap->stack_a) / 2)
-	{
-		push_swap->stack_a->move[0] = count;
-		push_swap->stack_a = push_swap->stack_a->next;
-	}
-	push_swap->stack_a = head;
-}
+//     i = 0;
+//     size = ft_llsize(*stack_a);
+//     while (!ft_is_sorted(stack_a))
+//     {
+//         j = 0;
+//         while (j++ < size)
+//         {
+//             if ((((*stack_a)->index >> i) & 1) == 1)
+//                 ft_rotate(stack_a, "ra");
+//             else
+//                 ft_push(stack_a, stack_b, "pb");
+//         }
+//         while (ft_llsize(*stack_b) != 0)
+//             ft_push(stack_b, stack_a, "pa");
+//         i++;
+//     }
+// }
 
 static void	ft_split_stack(t_ps *push_swap)
 {
@@ -123,7 +159,72 @@ static void	ft_split_stack(t_ps *push_swap)
 			ft_rotate(&push_swap->stack_a, "ra");
 		head = push_swap->stack_a;
 	}
-	move_stacks(push_swap);
+	// move_stacks(push_swap);
+}
+
+int	*ll_to_array(t_sort **stack)
+{
+	t_sort	*head;
+	int		*array;
+	int		i;
+
+	i = -1;
+	head = (*stack);
+	array = (int *)malloc(ft_llsize((*stack)));
+	while((*stack) != NULL)
+	{
+		array[++i] = (*stack)->num;
+		(*stack) = (*stack)->next;
+	}
+	(*stack) = head;
+	return(array);
+}
+
+void	nb_position(t_sort *stack, t_ps *push_swap)
+{
+	// t_sort *head;
+	int *arr_a;
+	int size;
+	int i;
+	// int	j;
+
+	i = -1;
+	size = ft_llsize(push_swap->stack_a);
+	arr_a = ll_to_array(&push_swap->stack_a);
+	// head = push_swap->stack_a;
+	// if (stack->num == push_swap->max)
+	// {
+	// 	j = 0;
+	// 	while (push_swap->stack_a != NULL)
+	// 	{
+	// 		if (push_swap->stack_a->index == (stack->index - 1))
+	// 			stack->move[0] = j;
+	// 		j++;
+	// 		push_swap->stack_a = push_swap->stack_a->next;
+	// 	}
+	// 	push_swap->stack_a = head;
+	// 	return ;
+	// }
+	while(++i < (size / 2))
+	{
+		if (stack->num > arr_a[i] && stack->num < arr_a[i + 1])
+		{
+			stack->move[0] = i;
+			return ;
+		}
+		// ft_printf("tb %d\n", arr_a[i]);
+	}
+	while (--size >= i)
+	{
+		if (stack->num < arr_a[size - 1] && stack->num > arr_a[size - 2])
+		{
+			// stack->move[0] = size * -1;
+			return ;
+		}
+		// ft_printf("bt %d\n", arr_a[size]);
+	}
+	free(arr_a);
+	return ;
 }
 
 // static void	ft_empty_stack(t_ps *push_swap)

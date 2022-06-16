@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:34:13 by degabrie          #+#    #+#             */
-/*   Updated: 2022/03/22 20:51:38 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/04/27 21:07:09 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 enum e_digits
 {
 	str,
-	cmd
+	cmd,
+	top,
+	bottom
 };
 
 typedef struct s_sort
@@ -62,6 +64,8 @@ int		ft_is_duplicate(t_ps *push_swap);
 int		ft_is_sorted(t_sort **stack);
 void	ft_sort_arr(t_ps *push_swap);
 int		*ft_intdup(t_sort **arr, int len);
+void	reverse_ll(t_sort **head);
+void    ft_radix_sort(t_sort **stack_a, t_sort **stack_b);
 
 void	ft_push(t_sort **src, t_sort **dst, char *op);
 void	ft_reverse_rotate(t_sort **stack, char *op);

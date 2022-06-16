@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:19:18 by degabrie          #+#    #+#             */
-/*   Updated: 2022/03/23 16:57:12 by degabrie         ###   ########.fr       */
+/*   Updated: 2022/04/27 23:09:53 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ static void	ft_print_stack(t_sort **stack)
 		// ft_printf("\naddr %p\n", temp);
 		ft_printf("NUM %d\n", temp->num);
 		ft_printf("index %d\n", temp->index);
-		ft_printf("keep %d\n\n", temp->keep);
-		// ft_printf("move a %d\n", temp->move[0]);
+		ft_printf("keep %d\n", temp->keep);
+		ft_printf("move a %d\n", temp->move[0]);
+		ft_printf("move b %d\n\n", temp->move[1]);
 		// ft_printf("move b %d\n", temp->move[1]);
 		// ft_printf("lis %d\n", temp->lis);
 		// ft_printf("next %p\n", temp->next);
